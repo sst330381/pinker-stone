@@ -1,0 +1,150 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Master.master.cs" Inherits="Master" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Styles/webapp.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="/Scripts/require-jquery.js" type="text/javascript"></script>
+    <script src="/Scripts/getaround-min.js" type="text/javascript"></script>
+    <script src="/Scripts/ga.js" type="text/javascript"></script>
+    <script src="/Scripts/libs/modernizr.custom.min.js" type="text/javascript"></script>
+    <script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.cookie.js" type="text/javascript"></script>
+    <script src="/Scripts/timer.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!--navbar-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/default.aspx">17Pinker</a>
+                <ul class="nav">
+                    <li class="text-link nav-button nav-button-icon"><a href="#" class="trips">
+                        <div class="nav-icon">
+                        </div>
+                        <div class="icon-label">
+                            路线</div>
+                    </a></li>
+                    <li class="text-link nav-button nav-button-icon"><a href="#" class="cars">
+                        <div class="nav-icon">
+                            <span class="big-icon icon icon-comments"></span>
+                        </div>
+                        <div class="icon-label">
+                            资讯</div>
+                    </a></li>
+                    <li class="text-link nav-button nav-button-icon"><a href="#" class="dash">
+                        <div class="nav-icon">
+                            <span class="big-icon icon icon-comments"></span>
+                        </div>
+                        <div class="icon-label">
+                            帮助</div>
+                    </a></li>
+                </ul>
+                <div class="nav-collapse">
+                    <ul class="nav pull-right">
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user icon-white"></i>
+                            <asp:LoginName ID="LoginName1" FormatString="{0}" runat="server" />
+                            <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="divider"></li>
+                                <li>
+                                    <asp:LoginView ID="LoginView2" runat="server">
+                                        <AnonymousTemplate>
+                                            <asp:LoginStatus ID="LoginStatus_Login" runat="server" LoginText="登录" LogoutText="退出" />
+                                        </AnonymousTemplate>
+                                        <LoggedInTemplate>
+                                            <asp:LoginStatus ID="LoginStatus_Logout" runat="server" LoginText="登录" LogoutText="退出" />
+                                        </LoggedInTemplate>
+                                    </asp:LoginView>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.nav-collapse -->
+            </div>
+        </div>
+        <!-- /navbar-inner -->
+    </div>
+    <!-- /navbar -->
+    <div class="container">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    
+    <div class="footer-press">
+        <div class="content">
+            <a href="http://intransit.blogs.nytimes.com/2011/02/02/in-bay-area-new-peer-to-peer-car-sharing-offers/?scp=1&amp;sq=%22Getaround%22&amp;st=cse"
+                class="newyorktimes"></a><a href="http://techcrunch.com/2011/05/25/and-the-winner-of-techcrunch-disrupt-nyc-is-getaround/"
+                    class="techcrunch"></a><a href="http://www.popsci.com/technology/article/2009-12/feature-greetings-future-camp?page=2"
+                        class="popsci"></a><a href="http://www.treehugger.com/files/2010/09/new-car-share-service-lets-you-rent-your-wheels-for-extra-cash.php"
+                            class="treehugger"></a><a href="http://www.engadget.com/2011/01/14/getaround-app-turns-you-into-enterprise-lets-your-rent-out-your/?utm_source=dlvr.it&amp;utm_medium=twitter&amp;utm_campaign=geekpills"
+                                class="engadget"></a>
+        </div>
+    </div>
+    <footer class="footer">
+      <div class="container-fluid footer-content">
+        <ul class="main-links">
+          <li>
+            · 
+            <a href="http://support.getaround.com">
+              FAQ
+            </a>
+          </li>
+          <li>
+            ·
+            <a href="http://support.getaround.com/customer/portal/emails/new">
+              Contact
+            </a>
+          </li>
+          <li>
+            · 
+            <a href="http://www.getaround.com/press">
+              Press
+            </a>
+          </li>
+          <li>
+            · 
+            <a href="http://blog.getaround.com">
+              Blog
+            </a>
+          </li>
+          <li>
+            · 
+            <a href="http://www.getaround.com/jobs">
+              Jobs
+            </a>
+          </li>
+          <li>
+            <a href="http://www.getaround.com/about">
+              About
+            </a>
+          </li>
+        </ul>
+        <ul class="legal">
+          <li>
+            <a href="http://www.getaround.com/privacy">
+              Privacy
+            </a>
+          </li>
+          <li>
+            <a href="http://www.getaround.com/terms-of-service">
+              Terms
+            </a>
+          </li>
+          <li>
+            ©2012 17Pinker
+          </li>
+        </ul>
+      </div>
+    </footer>
+</body>
+</html>

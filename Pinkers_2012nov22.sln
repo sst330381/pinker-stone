@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{D91482B5-3DDB-4709-826C-2A160A8E3085}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8FABE1FA-118C-4CE8-9F6A-8437674C2762}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDAL", "IDAL\IDAL.csproj", "{73258E51-DFEC-403E-BFA9-BD0D269AE5E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MODEL", "MODEL\MODEL.csproj", "{692613CD-872B-4811-BD89-312A5AB87DCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LIB", "LIB", "{9B32D77D-545A-4FCA-A14C-24E88D47E775}"
+	ProjectSection(SolutionItems) = preProject
+		LIB\Antlr3.Runtime.dll = LIB\Antlr3.Runtime.dll
+		LIB\Castle.Core.dll = LIB\Castle.Core.dll
+		LIB\FluentNHibernate.dll = LIB\FluentNHibernate.dll
+		LIB\HibernatingRhinos.Profiler.Appender.v4.0.dll = LIB\HibernatingRhinos.Profiler.Appender.v4.0.dll
+		LIB\Iesi.Collections.dll = LIB\Iesi.Collections.dll
+		LIB\Newtonsoft.Json.dll = LIB\Newtonsoft.Json.dll
+		LIB\NHibernate.ByteCode.Castle.dll = LIB\NHibernate.ByteCode.Castle.dll
+		LIB\NHibernate.dll = LIB\NHibernate.dll
+		LIB\nunit.framework.dll = LIB\nunit.framework.dll
+		LIB\nunit.mocks.dll = LIB\nunit.mocks.dll
+		LIB\QConnectSDK.dll = LIB\QConnectSDK.dll
+		LIB\QWeiboSDK.dll = LIB\QWeiboSDK.dll
+		LIB\Remotion.Data.Linq.dll = LIB\Remotion.Data.Linq.dll
+		LIB\RestSharp.dll = LIB\RestSharp.dll
+		LIB\Rhino.Mocks.dll = LIB\Rhino.Mocks.dll
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WEB", "WEB", "{7353C350-63A1-4E13-B9EC-B55C9E2CF869}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{D91482B5-3DDB-4709-826C-2A160A8E3085}|BLL.dll;{8FABE1FA-118C-4CE8-9F6A-8437674C2762}|DAL.dll;{73258E51-DFEC-403E-BFA9-BD0D269AE5E4}|IDAL.dll;{692613CD-872B-4811-BD89-312A5AB87DCB}|MODEL.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/WEB"
+		Debug.AspNetCompiler.PhysicalPath = "WEB\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WEB\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WEB"
+		Release.AspNetCompiler.PhysicalPath = "WEB\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WEB\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D91482B5-3DDB-4709-826C-2A160A8E3085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91482B5-3DDB-4709-826C-2A160A8E3085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91482B5-3DDB-4709-826C-2A160A8E3085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91482B5-3DDB-4709-826C-2A160A8E3085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FABE1FA-118C-4CE8-9F6A-8437674C2762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FABE1FA-118C-4CE8-9F6A-8437674C2762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FABE1FA-118C-4CE8-9F6A-8437674C2762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FABE1FA-118C-4CE8-9F6A-8437674C2762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73258E51-DFEC-403E-BFA9-BD0D269AE5E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73258E51-DFEC-403E-BFA9-BD0D269AE5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73258E51-DFEC-403E-BFA9-BD0D269AE5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73258E51-DFEC-403E-BFA9-BD0D269AE5E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{692613CD-872B-4811-BD89-312A5AB87DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{692613CD-872B-4811-BD89-312A5AB87DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{692613CD-872B-4811-BD89-312A5AB87DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{692613CD-872B-4811-BD89-312A5AB87DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7353C350-63A1-4E13-B9EC-B55C9E2CF869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7353C350-63A1-4E13-B9EC-B55C9E2CF869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7353C350-63A1-4E13-B9EC-B55C9E2CF869}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7353C350-63A1-4E13-B9EC-B55C9E2CF869}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
