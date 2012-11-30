@@ -367,155 +367,23 @@
                     </div>
                     <div class="main-action">
                         <div class="padded">
-                            <a href="/Routes.aspx" id="signup_button" class="btn btn-primary btn-large has-block-icon btn-join-now"
+                            <a href="#" id="signup_button" class="btn btn-primary btn-large has-block-icon btn-join-now"
                                 data-original-title="">
                                 <div class="block-icon block-icon-fb icon-facebook">
                                 </div>
-                                <div class="btn-label">
+                                <div class="btn-label ">
                                     发布路线
                                 </div>
                             </a>
-                            <div class="facepile-box">
-                                <iframe allowtransparency="true" src="//www.facebook.com/plugins/facepile.php?size=small&amp;width=233&amp;max_rows=1&amp;colorscheme=dark&amp;appId=195409021674"
-                                    style="border: none; overflow: hidden; width: 235px; height: 62px; margin-top: 10px;"
-                                    scrolling="no" frameborder="0"></iframe>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row-fluid main-cars">
-                    <div id="main_cars" class="span12 viewer">
-                        <div class="viewport nojs">
-                            <div style="width: 1100px; left: -3754px;" id="car_list" class="car-list overview">
-                                <div class="car first">
-                                    <a href="http://www.getaround.com/leventhald">
-                                        <div style="background: url(http://images.getaround.com/AMIfv94pfrlnTvpDoW0V0gPZFVl8Z432Q97Bk4kWhwUrSq2cTTcMkLm-EdY6t50tQ_9mwWsA9kiYxr2n77aKm5vB-M0wrjzgxG3YIO3sGb8kY_16MRLVZ5ixnpA1QoX5tIlYfGqmV43-b8BvWi8E40EGK0xN1C9zKg/240x150)"
-                                            class="car_photo">
-                                        </div>
-                                    </a>
-                                    <div class="car_description">
-                                        <div style="background: url(https://gettaimg.appspot.com/AMIfv96-bM0ZzH8GMhQsphjG7ylJZ6mheMKnXqF-iy6NTcO3POK2PofGYqHyU0BfZ3F2pDcYTKB4Sbi53G_g8wqufMSlGw8UyTvblqzMFZZYh-FTKycLMn9xF7i51Unq3b2TJjs4dj_gRH5sY18adjShckDU4BBEsg/60x60)"
-                                            class="user_photo">
-                                        </div>
-                                        <a href="http://www.getaround.com/leventhald" class="car_name">leventhald </a><a
-                                            href="http://www.getaround.com/leventhald">
-                                            <div class="car_make" title="Volkswagen Jetta">
-                                                Volkswagen Jetta
-                                            </div>
-                                        </a>
-                                        <div class="car_city muted" title="San Francisco, CA">
-                                            San Francisco, CA
-                                        </div>
-                                        <div class="car_price">
-                                            <div class="money">
-                                                $6
-                                            </div>
-                                            <div class="time">
-                                                / hour
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="car">
-                                    <a href="http://www.getaround.com/isho">
-                                        <div style="background: url(http://images.getaround.com/AMIfv97_9nxtZIL3Hp1PZkMhf_pDydSEvzbbEqeGfVwAb_rnzrFM-zkqko9JYI0rjxWnmeEfzYDY6PyIwYMA4ggVEB7iS9rxeb5I68lbIFWM7LMPzN6ZeC87fXDyC0AvCb2Pd2NJvI5hAl7IvnL5u_GExvN5WxWIYA/240x150)"
-                                            class="car_photo">
-                                        </div>
-                                    </a>
-                                    <div class="car_description">
-                                        <div style="background: url(http://gettaimg.appspot.com/AMIfv94Z03ENQD1XT8FnLeZDQNsl17oJANCop3uZ_3cuLRgeRkTfS71CrXuKfgdFrLlwAzLB_Psf7NBA5wN_DGW0WlBe7jMoswJyqIrk_KOhmGZUfn3DI6EjTA9Fy8w2UmY7vkHLuF34AO3G1itAyamPps0SL_rHng/60x60)"
-                                            class="user_photo">
-                                        </div>
-                                        <a href="http://www.getaround.com/isho" class="car_name">isho </a><a href="http://www.getaround.com/isho">
-                                            <div class="car_make" title="Subaru Impreza">
-                                                Subaru Impreza
-                                            </div>
-                                        </a>
-                                        <div class="car_city muted" title="San Francisco, CA">
-                                            San Francisco, CA
-                                        </div>
-                                        <div class="car_price">
-                                            <div class="money">
-                                                $11
-                                            </div>
-                                            <div class="time">
-                                                / hour
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="car">
-                                    <a href="http://www.getaround.com/gsoltis">
-                                        <div style="background: url(http://images.getaround.com/AMIfv94rQk_A2QSAswjWPNKoAYX5ygnO69diIvbXjLxY8X3K6VRudhAwqiIr1vxQwA_77qE51HiTz8ANi5vK-uRhwl_i9yHon9UoVOlWyev3AgpjNGjgLMMNtrt6nt_wXbXzx6Qqazp4Ywwc_3YO8g8xaXQ4GbbFBw/240x150)"
-                                            class="car_photo">
-                                        </div>
-                                    </a>
-                                    <div class="car_description">
-                                        <div style="background: url(https://gettaimg.appspot.com/AMIfv950fxRFIS-d82IWwm22e0XoszXKCKnO0WSWNSHXpecWUA4FKijjjNRkKrlS-CbpLBU_rpue47gBjZbrzJhsMAdVYUJ8bkx_LA07X33Zvnm0baWhcVT4jKmUJ8b-dz47fwfZaZyd9JkThqzF8cdUv3Jw93nWJA/60x60)"
-                                            class="user_photo">
-                                        </div>
-                                        <a href="http://www.getaround.com/gsoltis" class="car_name">gsoltis </a><a href="http://www.getaround.com/gsoltis">
-                                            <div class="car_make" title="Honda Accord">
-                                                Honda Accord
-                                            </div>
-                                        </a>
-                                        <div class="car_city muted" title="San Francisco, CA">
-                                            San Francisco, CA
-                                        </div>
-                                        <div class="car_price">
-                                            <div class="money">
-                                                $8
-                                            </div>
-                                            <div class="time">
-                                                / hour
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="car last">
-                                    <a href="http://www.getaround.com/easygoblanco">
-                                        <div style="background: url(http://images.getaround.com/AMIfv96KIJ_zZaW-q49HaFufVDED6cFbenKDNYO-fUdURbZyk42t-wzSkCCuXcCutDH9XFAbtAQSn2J-lmtpEck_pjDRYjVV5YABomT6lmcbjMeKu2aHSn9ecnWSwaSZ6PxOV0_C93yVbhJQcrGH-B9hIknipq12jA/240x150)"
-                                            class="car_photo">
-                                        </div>
-                                    </a>
-                                    <div class="car_description">
-                                        <div style="background: url(http://gettaimg.appspot.com/AMIfv96Taeufd1b0f56lyuTApYWscsQv_Bun91Ck0DtRRQb42iereODwBk_S48iM0dOMTpkDzKJ5BxvKV2DD-6WwCHBSdp7C4ShimSDPxxOH_X87gmgt-V6F-JvcHkljaee4XGgmj7VViymA9wICsNttulxyOFlwkA/60x60)"
-                                            class="user_photo">
-                                        </div>
-                                        <a href="http://www.getaround.com/easygoblanco" class="car_name">easygoblanco </a>
-                                        <a href="http://www.getaround.com/easygoblanco">
-                                            <div class="car_make" title="MILES ZX40S">
-                                                MILES ZX40S
-                                            </div>
-                                        </a>
-                                        <div class="car_city muted" title="Richmond, CA">
-                                            Richmond, CA
-                                        </div>
-                                        <div class="car_price">
-                                            <div class="money">
-                                                $3
-                                            </div>
-                                            <div class="time">
-                                                / hour
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="width: 950px;" id="car_scrollbar" class="scrollbar">
-                            <div class="scrollbar_bg">
-                            </div>
-                            <div class="track" style="width: 950px;">
-                                <div class="thumb" style="left: 442.90859413810233px; width: 115.6234475906607px;">
-                                    <div class="thumb_bg">
-                                    </div>
-                                    <div class="end">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="main-cars">
+                    <div class="padded">
+                        <asp:TextBox ID="txtStart" runat="server" />
+                        到
+                        <asp:TextBox ID="txtDest" runat="server" />
+                        <asp:Button ID="btnSearch" Text="查询" runat="server" OnClick="btnSearch_Click" CssClass="btn-danger btn-small" /></div>
                 </div>
             </div>
             <div class="callout">
@@ -546,20 +414,6 @@
             </div>
         </div>
         <div class="push">
-        </div>
-    </div>
-    <div id="searchline">
-        <asp:TextBox ID="txtStart" runat="server" />
-        到
-        <asp:TextBox ID="txtDest" runat="server" />
-        <asp:Button ID="btnSearch" Text="查询" runat="server" OnClick="btnSearch_Click" />
-    </div>
-    <div id="introduce">
-        <div id="intro-left">
-            introduce left
-        </div>
-        <div id="intro-right">
-            introduce right
         </div>
     </div>
 </asp:Content>

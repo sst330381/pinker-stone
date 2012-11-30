@@ -4,44 +4,525 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div id="search-condition">
-        类型1:
-        <div class="form-inline">
-            <ul class="resutil">
-                <li tsize="all">全部<span style="display: none;">✔全部 </span></li>
-                <li tsize="shortrun">上下班拼车<span style="display: none;">✔上下班拼车 </span></li>
-                <li tsize="longrun">长途拼车<span style="display: none;">✔长途拼车 </span></li>
-                <li tsize="selfrun">自驾拼车<span style="display: none;">✔自驾拼车 </span></li>
-            </ul>
+    <div class="container-fluid page">
+        <div class="row-fluid">
+            <div class="span8">
+                <div class="card">
+                    <div id="search-condition">
+                        类型1:
+                        <div class="form-inline">
+                            <ul class="resutil">
+                                <li tsize="all">全部<span style="display: none;">✔全部 </span></li>
+                                <li tsize="shortrun">上下班拼车<span style="display: none;">✔上下班拼车 </span></li>
+                                <li tsize="longrun">长途拼车<span style="display: none;">✔长途拼车 </span></li>
+                                <li tsize="selfrun">自驾拼车<span style="display: none;">✔自驾拼车 </span></li>
+                            </ul>
+                        </div>
+                        类型2:
+                        <div class="form-inline">
+                            <ul class="resutil">
+                                <li tsize="driver">找车主<span style="display: none;">✔找车主 </span></li>
+                                <li tsize="pinker">找拼客<span style="display: none;">✔找拼客 </span></li>
+                            </ul>
+                        </div>
+                        线路:
+                        <asp:TextBox ID="txtStart" runat="server" />
+                        到
+                        <asp:TextBox ID="txtDest" runat="server" />
+                        <input type="button" value="搜索" />
+                    </div>
+                    <div id="list" style="">
+                        <div id="sort">
+                            <div id="sort_text">
+                                <span class="gray">Sort by:</span> <a sort="distance" href="/rent-car?q=10451%2C+60649&amp;sort=distance"
+                                    class="current_sort">Distance </a><span class="gray">| </span><a sort="price" href="/rent-car?q=10451%2C+60649&amp;sort=price"
+                                        class="other_sort">Price </a>
+                            </div>
+                        </div>
+                        <div id="search_result_hook">
+                            <div style="display: none;" class="addthis_large center">
+                                <center>
+                                    <p>
+                                        No cars meet your search criteria. Invite friends and neighbors to list their cars.
+                                    </p>
+                                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                                        <a class="addthis_button_facebook at300b" title="Facebook" href="#"><span class=" at300bs at15nc at15t_facebook">
+                                            <span class="at_a11y">Share on facebook</span></span></a> <a class="addthis_button_email at300b"
+                                                title="Email" href="#"><span class=" at300bs at15nc at15t_email"><span class="at_a11y">
+                                                    Share on email</span></span></a> <a class="addthis_button_twitter at300b" title="Tweet This"
+                                                        href="#"><span class=" at300bs at15nc at15t_twitter"><span class="at_a11y">Share on
+                                                            twitter</span></span></a> <a class="addthis_button_compact at300m" href="#"><span
+                                                                class=" at300bs at15nc at15t_compact"><span class="at_a11y">More Sharing Services</span></span></a>
+                                        <script type="text/javascript">
+                                            var pageTracker = [];
+                                            if (_gaq._getAsyncTracker) pageTracker = _gaq._getAsyncTracker('');
+                                            var addthis_config = {};
+                                            addthis_config.username = "getaround";
+                                            addthis_config.data_track_clickback = true;
+                                            addthis_config.ui_cobrand = "Getaround";
+                                            addthis_config.data_ga_tracker = pageTracker;
+                                            addthis_config.data_track_clickback = true;
+                                            addthis_config.services_exclude = "print";
+                                            addthis_config.data_ga_social = true;
+                                            var addthis_share = {}
+                                            addthis_share.url = 'http://www.getaround.com/';
+                                            addthis_share.title = 'Anybody willing to rent me their car? You can do it safely via Getaround. Includes insurance too.';
+                                            addthis_share.description = 'Social car sharing: Rent cars by the hour from people around you. Start renting out yours today, and earn cash using your car.';
+                                            addthis_share.templates = { twitter: "{{title}} {{url}}" }
+                                        </script>
+                                        <div class="atclear">
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="list_loading" style="display: none;">
+                            </div>
+                        </div>
+                        <div id="car_results">
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/tigerstaurus" title="2002 Ford Taurus SES  Sedan, Red">
+                                                <div style="background: url(http://images.getaround.com/AMIfv96xiIeyRCkt5p52OkYn09lRS6Qf7tU6I0JKfHud00ywiuJfEoxj4Yk397_fsLGWrJsvW8lWEyi6eg3JNcY1cndeZ7h4mbp7XFKXWNVpkoDyKc7tYPrkj_wICKm86CH58o2fdvkgq3yfsadnECYs1RImlz6FlQ/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/tigerstaurus" class="title" title="2002 Ford Taurus SES  Sedan, Red">
+                                            <h3>
+                                                2002 Ford Taurus SES Sedan, Red
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/tigerstaurus#rating"
+                                                    title="2002 Ford Taurus SES  Sedan, Red">( 0 ratings ) </a>
+                                        </div>
+                                        <div class="description">
+                                            Sean DjTiger ... <strong>tigerstaurus </strong>with air conditioning, cruise control,
+                                        </div>
+                                        <div class="response_time">
+                                            <span>47 hour</span> average response time.
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $12.00</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>1.0 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/2010ChevyEquinoxLTZ" title="2010 Chevrolet Equinox, Black">
+                                                <div style="background: url(http://images.getaround.com/AMIfv94qEyndcLuhPVUMPlddGgLOa33zM2gr1OfyACNDXpdHlKrVrCDlzvKHkOFjjAiqf29aq3Ixa4xBetsi1_vCTFEVBduvI9arpAg_IKFd4vdZ44EW4nKln6pfvnhkWnQftQmmquw8Pf7HARVxVfYtrP07LcvqJA/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/2010ChevyEquinoxLTZ" class="title" title="2010 Chevrolet Equinox, Black">
+                                            <h3>
+                                                2010 Chevrolet Equinox, Black
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/2010ChevyEquinoxLTZ#rating"
+                                                    title="2010 Chevrolet Equinox, Black">( 0 ratings ) </a>
+                                        </div>
+                                        <div class="description">
+                                            ... <strong>2010ChevyEquinoxLTZ </strong>with gps navigation system, leather interior,
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $10.00</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>1.3 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/ChicagoBMW7series" title="2001 BMW 740iL, Silver">
+                                                <div style="background: url(http://images.getaround.com/AMIfv96pciJ8z0CWGqgSTPyZB4kJvWM1wU60n2sdhYR24V0ENgx7XaXygAnI3MsQLygdYBW2UGf3e3QQfiMeDavq9nZaQbfwLXIfHc-HjwsNNX8pO6HE0ij56l5QmR-7lOVCHIHYsUn-yViU_-igHVKusBIesqtnmQ/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/ChicagoBMW7series" class="title" title="2001 BMW 740iL, Silver">
+                                            <h3>
+                                                2001 BMW 740iL, Silver
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/ChicagoBMW7series#rating"
+                                                    title="2001 BMW 740iL, Silver">( 0 ratings ) </a>
+                                        </div>
+                                        <div class="description">
+                                            ... <strong>ChicagoBMW7series </strong>with sunroof / moonroof, leather interior,
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $12.00</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>1.9 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/sharktank" title="2007 Chevrolet Impala LT 3.5L V6 Engine, Gray">
+                                                <div style="background: url(http://images.getaround.com/AMIfv973CpL8YVFaREvT5v8bu-GyW72ojp6vVtjMrfZaQ4sW4ntFC5MDi7zslGh2HB4a9vsWpfC3Bz3dPTtHizgICT7_fyAIrswgxloMKheBxuLz4APD7erwu07SdaK5HPBB6wf-awUEkr2_YLs37wuJXr8ThQ0jhyhz3gkbvWmLMhoti39L_PA/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/sharktank" class="title" title="2007 Chevrolet Impala LT 3.5L V6 Engine, Gray">
+                                            <h3>
+                                                2007 Chevrolet Impala LT 3.5L V6 Engine, Gray
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/sharktank#rating"
+                                                    title="2007 Chevrolet Impala LT 3.5L V6 Engine, Gray">( 0 ratings ) </a>
+                                        </div>
+                                        <div class="description">
+                                            Moe Monique M.'s <strong>sharktank </strong>with aux/mp3 enabled, abs brakes,
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $8.00</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>2.0 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/AztekAWD" title="2005 Pontiac Aztek AWD, Silver">
+                                                <div style="background: url(http://images.getaround.com/AMIfv97a4h2CFrooTJsruQUkWJbQJ0UphHYnWQFV-watTkof-BKq5DPrqxszdafF8FDjazknfveulwjJe8cckZz-66gGYuThdR5oXZ5OneC7LzyMx_LWDYgPMjzQM5DyL3I8QRsJfKSkFxDZ5Au7ZUEdIzzyqct1lg/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/AztekAWD" class="title" title="2005 Pontiac Aztek AWD, Silver">
+                                            <h3>
+                                                2005 Pontiac Aztek AWD, Silver
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/AztekAWD#rating"
+                                                    title="2005 Pontiac Aztek AWD, Silver">( 0 ratings ) </a>
+                                        </div>
+                                        <div class="description">
+                                            Jason KnowDat P.'s <strong>AztekAWD </strong>
+                                        </div>
+                                        <div class="response_time">
+                                            <span>4 hour</span> average response time.
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $8.00</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>2.1 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/TDIJetta" title="2002 Volkswagen Jetta GLS 1.9 Tdi, Black">
+                                                <div style="background: url(http://images.getaround.com/AMIfv97a4h2CFrooTJsruQUkWJbQJ0UphHYnWQFV-watTkof-BKq5DPrqxszdafF8FDjazknfveulwjJe8cckZz-66gGYuThdR5oXZ5OneC7LzyMx_LWDYgPMjzQM5DyL3I8QRsJfKSkFxDZ5Au7ZUEdIzzyqct1lg/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/TDIJetta" class="title" title="2002 Volkswagen Jetta GLS 1.9 Tdi, Black">
+                                            <h3>
+                                                2002 Volkswagen Jetta GLS 1.9 Tdi, Black
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/TDIJetta#rating"
+                                                    title="2002 Volkswagen Jetta GLS 1.9 Tdi, Black">( 0 ratings ) </a>
+                                        </div>
+                                        <div class="description">
+                                            KC V.'s <strong>TDIJetta </strong>
+                                        </div>
+                                        <div class="response_time">
+                                            <span>11 hour</span> average response time.
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $8.00</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>2.5 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/Waleli" title="2010 Chevrolet Cobalt Coupe with 4 Lug Wheels, Maroon">
+                                                <div style="background: url(http://images.getaround.com/AMIfv97a4h2CFrooTJsruQUkWJbQJ0UphHYnWQFV-watTkof-BKq5DPrqxszdafF8FDjazknfveulwjJe8cckZz-66gGYuThdR5oXZ5OneC7LzyMx_LWDYgPMjzQM5DyL3I8QRsJfKSkFxDZ5Au7ZUEdIzzyqct1lg/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/Waleli" class="title" title="2010 Chevrolet Cobalt Coupe with 4 Lug Wheels, Maroon">
+                                            <h3>
+                                                2010 Chevrolet Cobalt Coupe with 4 Lug Wheels, Maroon
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/Waleli#rating"
+                                                    title="2010 Chevrolet Cobalt Coupe with 4 Lug Wheels, Maroon">( 0 ratings )
+                                            </a>
+                                        </div>
+                                        <div class="description">
+                                            Elisa W.'s <strong>Waleli </strong>with air conditioning, aux/mp3 enabled,
+                                        </div>
+                                        <div class="response_time">
+                                            <span>1 hour</span> average response time.
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $8.00</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>2.9 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/Geemobile" title="2001 Hyundai Sonata, Grey">
+                                                <div style="background: url(http://images.getaround.com/AMIfv97a4h2CFrooTJsruQUkWJbQJ0UphHYnWQFV-watTkof-BKq5DPrqxszdafF8FDjazknfveulwjJe8cckZz-66gGYuThdR5oXZ5OneC7LzyMx_LWDYgPMjzQM5DyL3I8QRsJfKSkFxDZ5Au7ZUEdIzzyqct1lg/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/Geemobile" class="title" title="2001 Hyundai Sonata, Grey">
+                                            <h3>
+                                                2001 Hyundai Sonata, Grey
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/Geemobile#rating"
+                                                    title="2001 Hyundai Sonata, Grey">( 0 ratings ) </a>
+                                        </div>
+                                        <div class="description">
+                                            Matthew G.'s <strong>Geemobile </strong>
+                                        </div>
+                                        <div class="response_time">
+                                            <span>12 hour</span> average response time.
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $6.50</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>3.2 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car_result">
+                                <div class="row-fluid">
+                                    <div class="information span9">
+                                        <div class="photo">
+                                            <a href="http://www.getaround.com/flaircars" title="2011 Hyundai Veracruz, Black">
+                                                <div style="background: url(http://images.getaround.com/AMIfv946VoXEVkDIpuxKDyZ6e2WcZz8RbDf94ukUGmsZZpFKHoWazXIiphWoeZn9B85OqfbMgaUdIfst9KBOLNh0BJxUmztf9BsvjzLhsiuaf2bjjHCepo6W5FBoBAdg-vaAMeYtj2FrfhXq1DNCvpZIeI7_kiQ6gjnWO7GyHBoxaW2cf5x3v4k/150x100)"
+                                                    class="car_photo">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a href="http://www.getaround.com/flaircars" class="title" title="2011 Hyundai Veracruz, Black">
+                                            <h3>
+                                                2011 Hyundai Veracruz, Black
+                                            </h3>
+                                        </a>
+                                        <div class="rating">
+                                            <span class="star-ratings"><span class="icon-star-empty"></span><span class="icon-star-empty">
+                                            </span><span class="icon-star-empty"></span><span class="icon-star-empty"></span><span
+                                                class="icon-star-empty"></span></span><a href="http://www.getaround.com/flaircars#rating"
+                                                    title="2011 Hyundai Veracruz, Black">( 0 ratings ) </a>
+                                        </div>
+                                        <div class="description">
+                                            Vinson 'Flair'... <strong>flaircars </strong>with sunroof / moonroof, air conditioning,
+                                        </div>
+                                    </div>
+                                    <div class="action span3">
+                                        <h3 class="price">
+                                            $13.00</h3>
+                                        <div class="duration">
+                                            for 1 hour</div>
+                                        <div class="distance">
+                                            <span><span class="icon icon-map-marker"></span>4.4 </span><span class="muted">miles
+                                                away </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list_loading">
+                            </div>
+                        </div>
+                        <div style="" class="addthis_small center">
+                            <div class="addthis_toolbox addthis_default_style">
+                                <a class="addthis_button_facebook at300b" title="Facebook" href="#"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook">
+                                    <span class="at_a11y">Share on facebook</span></span></a> <a class="addthis_button_email at300b"
+                                        title="Email" href="#"><span class="at16nc at300bs at15nc at15t_email at16t_email"><span
+                                            class="at_a11y">Share on email</span></span></a> <a class="addthis_button_twitter at300b"
+                                                title="Tweet This" href="#"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter">
+                                                    <span class="at_a11y">Share on twitter</span></span></a> <a class="addthis_button_compact at300m"
+                                                        href="#"><span class="at16nc at300bs at15nc at15t_compact at16t_compact"><span class="at_a11y">
+                                                            More Sharing Services</span></span></a>
+                                <script type="text/javascript">
+                                    var pageTracker = [];
+                                    if (_gaq._getAsyncTracker) pageTracker = _gaq._getAsyncTracker('');
+                                    var addthis_config = {};
+                                    addthis_config.username = "getaround";
+                                    addthis_config.data_track_clickback = true;
+                                    addthis_config.ui_cobrand = "Getaround";
+                                    addthis_config.data_ga_tracker = pageTracker;
+                                    addthis_config.data_track_clickback = true;
+                                    addthis_config.services_exclude = "print";
+                                    addthis_config.data_ga_social = true;
+                                    var addthis_share = {}
+                                    addthis_share.url = 'http://www.getaround.com/';
+                                    addthis_share.title = 'Anybody willing to rent me their car? You can do it safely via Getaround. Includes insurance too.';
+                                    addthis_share.description = 'Social car sharing: Rent cars by the hour from people around you. Start renting out yours today, and earn cash using your car.';
+                                    addthis_share.templates = { twitter: "{{title}} {{url}}" }
+                                </script>
+                                <div class="atclear">
+                                </div>
+                            </div>
+                            <div class="muted">
+                                Not finding the car you need? Invite friends and neighbors to list their cars.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div id="queue" class="card">
+                    <div id="queueBox">
+                        <h3 class="section-title">
+                            <span class="icon icon-shopping-cart"></span>Request queue
+                        </h3>
+                    </div>
+                    <div class="section-content">
+                        <div id="queue-times" class="times">
+                            <span id="queue-range"></span>
+                        </div>
+                        <div id="queue-list">
+                        </div>
+                        <div id="queue-list-auto">
+                            <div class="autoqueue-separator">
+                                Added by Getaround for faster approval
+                            </div>
+                            <div id="autoqueued-cars">
+                            </div>
+                        </div>
+                        <a href="/checkout/signin" id="checkout" class="btn btn-primary input-fullwidth">Checkout
+                        </a>
+                        <div id="howto">
+                            You can bundle up to 5 requests at once. Owners compete to respond quickly. The
+                            first owner to respond wins your business.
+                        </div>
+                    </div>
+                    <!-- #expiredRequestModal.modal.fade{"aria-hidden" : "true", "aria-labelledby" : "myModalLabel", "role" : "dialog", "tabindex" : "-1"} -->
+                    <!-- .modal-header -->
+                    <!-- %h3 -->
+                    <!-- Your request queue has expired. -->
+                    <!-- .modal-body -->
+                    <!-- %p -->
+                    <!-- Oops. The starting time for your rental has passed. We will need to clear your queue. :-( -->
+                    <!-- .modal-footer -->
+                    <!-- %button.btn.btn-small{"aria-hidden" : "true", "data-dismiss" : "modal"} Close -->
+                </div>
+            </div>
         </div>
-        类型2:
-        <div class="form-inline">
-            <ul class="resutil">
-                <li tsize="driver">找车主<span style="display: none;">✔找车主 </span></li>
-                <li tsize="pinker">找拼客<span style="display: none;">✔找拼客 </span></li>
-            </ul>
+        <div id="search-list">
+            <asp:Repeater ID="Repeater1" runat="server">
+                <HeaderTemplate>
+                    <table>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td>
+                            [起始站] → [终点站] 车型:[车型] 途径:【途径地点（最多5个）】
+                        </td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </table>
+                </FooterTemplate>
+            </asp:Repeater>
         </div>
-        线路:
-        <asp:TextBox ID="txtStart" runat="server" />
-        到
-        <asp:TextBox ID="txtDest" runat="server" />
-        <input type="button" value="搜索" />
-    </div>
-    <div id="search-list">
-        <asp:Repeater runat="server">
-            <HeaderTemplate>
-                <table>
-            </HeaderTemplate>
-            <ItemTemplate>
-            <tr>
-                <td>
-                    [起始站] → [终点站] 车型:[车型] 途径:【途径地点（最多5个）】
-                </td>
-            </tr>
-            </ItemTemplate>
-            <FooterTemplate>
-                </table>
-            </FooterTemplate>
-        </asp:Repeater>
     </div>
 </asp:Content>
