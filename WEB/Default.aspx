@@ -347,6 +347,14 @@
           color: #00cfe4;
         }
     </style>
+    <script src="http://api.amap.com/webapi/init?v=1.1" type="text/javascript"></script>
+    <script type="text/javascript">
+        function initialize() {
+            var mapObj = new AMap.Map("container"); // 创建地图实例  
+            var point = new AMap.LngLat(116.404, 39.915); // 创建点坐标  
+            mapObj.setCenter(point); // 设置地图中心点坐标  
+        }  
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="banners">
@@ -358,10 +366,10 @@
                     <div class="main-title">
                         <div class="padded border-right">
                             <h1 class="title">
-                                Rent a car from someone nearby.
+                                轻松拼车,环保出行.
                             </h1>
                             <h2 class="subtitle">
-                                Convenient hourly rentals. Full insurance included.
+                                向左走，向右走，点击<a href="">发布路线</a>寻找一起拼车的TA吧~~
                             </h2>
                         </div>
                     </div>
@@ -381,33 +389,33 @@
                 <div class="main-cars">
                     <div class="padded">
                         <asp:TextBox ID="txtStart" runat="server" />
-                        到
                         <asp:TextBox ID="txtDest" runat="server" />
-                        <asp:Button ID="btnSearch" Text="查询" runat="server" OnClick="btnSearch_Click" CssClass="btn-danger btn-small" /></div>
+                        <asp:Button ID="btnSearch" Text="查询" runat="server" OnClick="btnSearch_Click" CssClass="btn-danger btn-small" />
+                    </div>
+                    <div id="container">
+                    </div>
                 </div>
             </div>
             <div class="callout">
                 <div class="split left-side">
                     <div class="padded">
                         <h2>
-                            Introducing Getaway
+                            关于17拼客
                         </h2>
                         <p>
-                            Whether you're going away for a while or want to make the most of your idle car,
-                            now you can share full-time while Getaround manages the entire process. <a href="http://www.getaround.com/getaway">
-                                Learn more about Getaway and our $1000 guarantee. </a>
+                            17拼客网是一个拼车平台，致力于为广大车主和拼客提供更环保的出行方式 。通过网络手段建立起用户与顺风车司机以及租车公司之间的信息桥梁。 巧拼车既能解决人们在春运等各大节日期间由于各种原因没有买到车票而无法出行的困难，让拼车回家成为可能；
+                            又能让广大白领朋友轻松上下班，无需挤公交和倒车，不必为等车烦恼。采用拼车方式，省时、省力、省心。 <a href="#">更多</a>
                         </p>
                     </div>
                 </div>
                 <div class="split right-side">
                     <div class="padded">
                         <h2>
-                            Our commitment to trust and safety
+                            安全与信任
                         </h2>
                         <p>
-                            Sharing on Getaround is safe. From our patent pending in-car technology to our 24/7
-                            support line, we make sure that you can share without worry. <a href="http://www.getaround.com/safety">
-                                Learn more about our commitment to trust and safety. </a>
+                            17拼客网是一个拼车平台，致力于为广大车主和拼客提供更环保的出行方式 。在网络上约起拼车的过程中，要确认好拼车人信息。详细记录拼车者 姓名、年龄、身份证、个人及家庭联系方式等，最好有认识的人一起拼车。
+                            车主和同车人应分别将了解到的对方信息发送给至少一名亲友，以备出现问题后联系使用，并有意让对方知道这个情况。<a href="#">更多 </a>
                         </p>
                     </div>
                 </div>
