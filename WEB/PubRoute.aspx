@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master.master" AutoEventWireup="true" CodeFile="PinkerPub.aspx.cs"
-    Inherits="PinkerPub" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master.master" AutoEventWireup="true" CodeFile="PubRoute.aspx.cs"
+    Inherits="PubRoute" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>

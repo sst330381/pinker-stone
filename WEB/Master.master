@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="Styles/webapp.css" rel="stylesheet" type="text/css" />
+    <%--<link href="Styles/webapp.css" rel="stylesheet" type="text/css" />--%>
+    <link href="Styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="/Scripts/require-jquery.js" type="text/javascript"></script>
     <script src="/Scripts/getaround-min.js" type="text/javascript"></script>
@@ -13,16 +15,8 @@
     <script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
     <script src="/Scripts/jquery.cookie.js" type="text/javascript"></script>
     <script src="/Scripts/timer.js" type="text/javascript"></script>
-    <script src="http://api.amap.com/webapi/init?v=1.1" type="text/javascript"></script>
-    <script type="text/javascript">
-        function initialize() {
-            var mapObj = new AMap.Map("container"); // 创建地图实例  
-            var point = new AMap.LngLat(116.404, 39.915); // 创建点坐标  
-            mapObj.setCenter(point); // 设置地图中心点坐标  
-        }  
-    </script>
     <style type="text/css">
-    .resutil
+        .resutil
         {
             margin-top: 5px;
             margin-left: 0;
@@ -34,7 +28,7 @@
             cursor: pointer;
             position: relative;
             float: left;
-            width: 36px;
+            width: 87px;
             height: 36px;
             font-size: 10px;
             font-weight: bold;
@@ -43,7 +37,6 @@
             border: 1px solid #ddd;
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
-            border-radius: 4px;
             margin-right: 5px;
         }
         .resutil span
@@ -64,7 +57,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body onload="initialize()">
+<body>
     <form id="form1" runat="server">
     <!--navbar-->
     <div class="navbar navbar-fixed-top">
@@ -72,20 +65,20 @@
             <div class="container">
                 <a class="brand" href="/default.aspx">17Pinker</a>
                 <ul class="nav">
-                    <li class="text-link nav-button nav-button-icon"><a href="#" class="trips">
+                    <li class="nav-button nav-button-icon"><a href="#" class="trips">
                         <div class="nav-icon">
                         </div>
                         <div class="icon-label">
                             路线</div>
                     </a></li>
-                    <li class="text-link nav-button nav-button-icon"><a href="#" class="cars">
+                    <li class="nav-button nav-button-icon"><a href="#" class="cars">
                         <div class="nav-icon">
                             <span class="big-icon icon icon-comments"></span>
                         </div>
                         <div class="icon-label">
                             资讯</div>
                     </a></li>
-                    <li class="text-link nav-button nav-button-icon"><a href="#" class="dash">
+                    <li class="nav-button nav-button-icon"><a href="#" class="dash">
                         <div class="nav-icon">
                             <span class="big-icon icon icon-comments"></span>
                         </div>
@@ -96,11 +89,11 @@
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
                         <li><a href="http://www.getaround.com/listcar" id="list-car-btn"></a></li>
-                        <li class="divider-vertical"></li>
-                        <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user icon-white"></i>
-                            <asp:LoginName ID="LoginName1" FormatString="{0}" runat="server" />
-                            <b class="caret"></b></a>
+                        <li id="person-dropdown" class="dropdown active nav-button nav-button-icon"><a href="#"
+                            class="dropdown-toggle person-btn" data-toggle="dropdown">
+                            <div class="nav-icon">
+                            </div>
+                        </a>
                             <ul class="dropdown-menu">
                                 <li class="divider"></li>
                                 <li>
@@ -128,15 +121,14 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
-    
     <div class="footer-press">
         <div class="content">
-            <a href="http://intransit.blogs.nytimes.com/2011/02/02/in-bay-area-new-peer-to-peer-car-sharing-offers/?scp=1&amp;sq=%22Getaround%22&amp;st=cse"
-                class="newyorktimes"></a><a href="http://techcrunch.com/2011/05/25/and-the-winner-of-techcrunch-disrupt-nyc-is-getaround/"
-                    class="techcrunch"></a><a href="http://www.popsci.com/technology/article/2009-12/feature-greetings-future-camp?page=2"
-                        class="popsci"></a><a href="http://www.treehugger.com/files/2010/09/new-car-share-service-lets-you-rent-your-wheels-for-extra-cash.php"
-                            class="treehugger"></a><a href="http://www.engadget.com/2011/01/14/getaround-app-turns-you-into-enterprise-lets-your-rent-out-your/?utm_source=dlvr.it&amp;utm_medium=twitter&amp;utm_campaign=geekpills"
-                                class="engadget"></a>
+            <a href="#" class="newyorktimes"></a>
+            <a href="#/" class="techcrunch"></a>
+            <a href="#" class="popsci"></a>
+            <a href="#" class="treehugger"></a>
+            <a href="#" class="engadget">
+            </a>
         </div>
     </div>
     <footer class="footer">

@@ -4,6 +4,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="/Styles/widget097.css" rel="stylesheet" type="text/css" />
     <link href="/Styles/pinkerlist.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        //选择拼车类型
+        $(function () {
+            $(".resutil>li").click(function () {
+                $(this).parent().find("li").children().css("display", "none");
+                $(this).children().css("display", "block");
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container-fluid page">
@@ -11,6 +20,13 @@
             <div class="span8">
                 <div class="card">
                     <div id="search-condition">
+                        <div class="control-group">
+                            <label class="control-label" for="inputEmail">
+                                Email</label>
+                            <div class="controls">
+                                <input type="text" id="inputEmail" placeholder="Email"/>
+                            </div>
+                        </div>
                         类型1:
                         <div class="form-inline">
                             <ul class="resutil">
@@ -28,10 +44,10 @@
                             </ul>
                         </div>
                         线路:
-                        <asp:TextBox ID="txtStart" runat="server" />
+                        <asp:TextBox ID="txtStart" runat="server" placeholder="输入起点..." />
                         到
-                        <asp:TextBox ID="txtDest" runat="server" />
-                        <input type="button" value="搜索" />
+                        <asp:TextBox ID="txtDest" runat="server" placeholder="输入终点..." />
+                        <input type="button" class="btn-middle btn-info" value="搜索" />
                     </div>
                 </div>
                 <div id="list" style="">
@@ -42,46 +58,8 @@
                                     class="other_sort">Price </a>
                         </div>
                     </div>
-                    <div id="search_result_hook">
-                        <div style="display: none;" class="addthis_large center">
-                            <center>
-                                <p>
-                                    No cars meet your search criteria. Invite friends and neighbors to list their cars.
-                                </p>
-                                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                                    <a class="addthis_button_facebook at300b" title="Facebook" href="#"><span class=" at300bs at15nc at15t_facebook">
-                                        <span class="at_a11y">Share on facebook</span></span></a> <a class="addthis_button_email at300b"
-                                            title="Email" href="#"><span class=" at300bs at15nc at15t_email"><span class="at_a11y">
-                                                Share on email</span></span></a> <a class="addthis_button_twitter at300b" title="Tweet This"
-                                                    href="#"><span class=" at300bs at15nc at15t_twitter"><span class="at_a11y">Share on
-                                                        twitter</span></span></a> <a class="addthis_button_compact at300m" href="#"><span
-                                                            class=" at300bs at15nc at15t_compact"><span class="at_a11y">More Sharing Services</span></span></a>
-                                    <script type="text/javascript">
-                                        var pageTracker = [];
-                                        if (_gaq._getAsyncTracker) pageTracker = _gaq._getAsyncTracker('');
-                                        var addthis_config = {};
-                                        addthis_config.username = "getaround";
-                                        addthis_config.data_track_clickback = true;
-                                        addthis_config.ui_cobrand = "Getaround";
-                                        addthis_config.data_ga_tracker = pageTracker;
-                                        addthis_config.data_track_clickback = true;
-                                        addthis_config.services_exclude = "print";
-                                        addthis_config.data_ga_social = true;
-                                        var addthis_share = {}
-                                        addthis_share.url = 'http://www.getaround.com/';
-                                        addthis_share.title = 'Anybody willing to rent me their car? You can do it safely via Getaround. Includes insurance too.';
-                                        addthis_share.description = 'Social car sharing: Rent cars by the hour from people around you. Start renting out yours today, and earn cash using your car.';
-                                        addthis_share.templates = { twitter: "{{title}} {{url}}" }
-                                    </script>
-                                    <div class="atclear">
-                                    </div>
-                                </div>
-                            </center>
-                        </div>
-                        <div class="list_loading" style="display: none;">
-                        </div>
-                    </div>
-                    <asp:Repeater ID="Repeater2" runat="server">
+                    <%--搜索结果钩子----<div id="search_result_hook"></div>--%>
+                    <asp:Repeater ID="Repeater_cars" runat="server">
                         <ItemTemplate>
                             <div id="car_results">
                                 <div class="car_result">
@@ -183,23 +161,6 @@
                                                 <span class="at_a11y">Share on twitter</span></span></a> <a class="addthis_button_compact at300m"
                                                     href="#"><span class="at16nc at300bs at15nc at15t_compact at16t_compact"><span class="at_a11y">
                                                         More Sharing Services</span></span></a>
-                            <script type="text/javascript">
-                                var pageTracker = [];
-                                if (_gaq._getAsyncTracker) pageTracker = _gaq._getAsyncTracker('');
-                                var addthis_config = {};
-                                addthis_config.username = "getaround";
-                                addthis_config.data_track_clickback = true;
-                                addthis_config.ui_cobrand = "Getaround";
-                                addthis_config.data_ga_tracker = pageTracker;
-                                addthis_config.data_track_clickback = true;
-                                addthis_config.services_exclude = "print";
-                                addthis_config.data_ga_social = true;
-                                var addthis_share = {}
-                                addthis_share.url = 'http://www.getaround.com/';
-                                addthis_share.title = 'Anybody willing to rent me their car? You can do it safely via Getaround. Includes insurance too.';
-                                addthis_share.description = 'Social car sharing: Rent cars by the hour from people around you. Start renting out yours today, and earn cash using your car.';
-                                addthis_share.templates = { twitter: "{{title}} {{url}}" }
-                            </script>
                             <div class="atclear">
                             </div>
                         </div>
@@ -236,15 +197,6 @@
                             first owner to respond wins your business.
                         </div>
                     </div>
-                    <!-- #expiredRequestModal.modal.fade{"aria-hidden" : "true", "aria-labelledby" : "myModalLabel", "role" : "dialog", "tabindex" : "-1"} -->
-                    <!-- .modal-header -->
-                    <!-- %h3 -->
-                    <!-- Your request queue has expired. -->
-                    <!-- .modal-body -->
-                    <!-- %p -->
-                    <!-- Oops. The starting time for your rental has passed. We will need to clear your queue. :-( -->
-                    <!-- .modal-footer -->
-                    <!-- %button.btn.btn-small{"aria-hidden" : "true", "data-dismiss" : "modal"} Close -->
                 </div>
             </div>
         </div>
