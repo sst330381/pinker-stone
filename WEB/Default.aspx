@@ -12,30 +12,23 @@
             <div class="floater">
                 <div class="row-fluid title-box">
                     <div class="main-title">
-                        <div class="padded border-right">
+                        <div class="padded3 border-right">
                             <h1 class="title">
                                 轻松拼车,环保出行.
                             </h1>
                             <h2 class="subtitle">
-                                向左走，向右走，点击<a href="">发布路线</a>寻找一起拼车的TA吧~~
+                                向左走，向右走，点击<a href="">发布路线</a>寻找一起拼车的TA吧
                             </h2>
                         </div>
                     </div>
                     <div class="main-action">
-                        <div class="padded">
-                            <a href="#" id="signup_button" class="btn btn-primary btn-large has-block-icon btn-join-now"
-                                data-original-title="">
-                                <div class="block-icon block-icon-fb icon-facebook">
-                                </div>
-                                <div class="btn-label ">
-                                    发布路线
-                                </div>
-                            </a>
+                        <div class="padded3">
+                            <input type="button" class="btn btn-info btn-xxlarge" value="发布路线" />
                         </div>
                     </div>
                 </div>
                 <div class="main-cars">
-                    <div class="padded">
+                    <div class="padded2">
                         <asp:TextBox CssClass="text-btn" ID="txtStart" runat="server" />
                         <asp:TextBox CssClass="text-btn" ID="txtDest" runat="server" />
                         <asp:Button ID="btnSearch" Text="查询" runat="server" OnClick="btnSearch_Click" CssClass="btn btn-danger" />
@@ -45,7 +38,7 @@
             </div>
             <div class="callout">
                 <div class="split left-side">
-                    <div class="padded">
+                    <div class="padded2">
                         <h2>
                             关于17拼客
                         </h2>
@@ -56,7 +49,7 @@
                     </div>
                 </div>
                 <div class="split right-side">
-                    <div class="padded">
+                    <div class="padded2">
                         <h2>
                             安全与信任
                         </h2>
