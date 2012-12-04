@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <%--<link href="Styles/webapp.css" rel="stylesheet" type="text/css" />--%>
     <link href="Styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Styles/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
@@ -123,11 +124,8 @@
     </form>
     <div class="footer-press">
         <div class="content">
-            <a href="#" class="newyorktimes"></a>
-            <a href="#/" class="techcrunch"></a>
-            <a href="#" class="popsci"></a>
-            <a href="#" class="treehugger"></a>
-            <a href="#" class="engadget">
+            <a href="#" class="newyorktimes"></a><a href="#" class="techcrunch"></a><a href="#"
+                class="popsci"></a><a href="#" class="treehugger"></a><a href="#" class="engadget">
             </a>
         </div>
     </div>
@@ -135,43 +133,38 @@
       <div class="container-fluid footer-content">
         <ul class="main-links">
           <li>
-            · 
             <a href="#">
-              FAQ
-            </a>
-          </li>
-          <li>
-            ·
-            <a href="#">
-              Contact
-            </a>
-          </li>
-          <li>
-            · 
-            <a href="#">
-              Press
-            </a>
-          </li>
-          <li>
-            · 
-            <a href="#">
-              Blog
-            </a>
-          </li>
-          <li>
-            · 
-            <a href="#">
-              Jobs
+              拼客指南
             </a>
           </li>
           <li>
             <a href="#">
-              About
+              联系我们
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              协议
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              博客
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              诚聘英才
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              关于我们
             </a>
           </li>
         </ul>
         <ul class="legal">
-          <li>
+          <%--<li>
             <a href="#">
               Privacy
             </a>
@@ -180,7 +173,7 @@
             <a href="#">
               Terms
             </a>
-          </li>
+          </li>--%>
           <li>
             ©2012 17Pinker
           </li>
