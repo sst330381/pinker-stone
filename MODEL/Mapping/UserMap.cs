@@ -11,9 +11,20 @@ namespace MODEL.Mapping
         public UserMap()
         {
             Id(x => x.ID);
-            Map(x => x.MemberID);
-            Map(x => x.Name);
+            Map(x => x.NickName);
             Map(x => x.Password);
+            Map(x => x.RealName);
+
+            Map(x => x.Gender);
+            Map(x => x.Telphone);
+            Map(x => x.Credit);
+            Map(x => x.RegistTime);
+
+            Map(x => x.Avatar);
+            Map(x => x.Openid);
+            Map(x => x.Opentype).CustomType<int>();
+
+
         }
     }
 }

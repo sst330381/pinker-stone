@@ -1,4 +1,6 @@
-﻿
+﻿body {
+  background: #f2f1f0 url("/img/patterns/papergrain.png");
+}
 /* line 3, ../sass/app/search/_search.sass */
 .btn-instant {
   font-size: 14px;

@@ -50,8 +50,8 @@ namespace BLL
         public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status)
         {
             IMem.CreateUser(new MODEL.User() { 
-                MemberID=Guid.NewGuid(),
-                Name=username,
+                ID=Guid.NewGuid(),
+                NickName=username,
                 Password=password
             });
             MembershipUser mu = new MembershipUser("memProvider",

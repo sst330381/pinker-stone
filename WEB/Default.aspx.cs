@@ -14,6 +14,6 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     { 
-        Response.Redirect("/PinkerList.aspx?start="+txtStart.Text+"&dest="+txtDest.Text);
+        //Response.Redirect("/PinkerList.aspx?start="+txtStart.Text+"&dest="+txtDest.Text);
     }
 }

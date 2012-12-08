@@ -31,8 +31,7 @@
             float: left;
             width: 87px;
             height: 36px;
-            font-size: 10px;
-            font-weight: bold;
+            font-size: 13px;
             line-height: 36px;
             text-align: center;
             border: 1px solid #ddd;
@@ -62,6 +61,12 @@
             margin: 0px 5px 0 30px;
         }
     </style>
+    <script type="text/javascript">
+        $(function () {
+            $("#LoginView1_LoginView2_LoginStatus_Logout").html('<i class="icon-off"></i>退出');
+            $("#LoginView1_LoginView2_LoginStatus_Login").html('<i class="icon-off"></i>登录');
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -73,20 +78,20 @@
             <div class="container">
                 <a class="brand" href="/default.aspx">拼客网</a>
                 <ul class="nav">
-                    <li class="nav-button nav-button-icon"><a href="#" class="trips">
+                    <li class="nav-button nav-button-icon"><a href="/PinkerList.aspx" class="trips">
                         <div class="nav-icon">
                         </div>
                         <div class="label-icon">
                             路线</div>
                     </a></li>
-                    <li class="nav-button nav-button-icon"><a href="#" class="cars">
+                    <li class="nav-button nav-button-icon"><a href="/About.aspx" class="cars">
                         <div class="nav-icon">
                             <span class="big-icon icon icon-comments"></span>
                         </div>
                         <div class="label-icon">
-                            资讯</div>
+                            车讯</div>
                     </a></li>
-                    <li class="nav-button nav-button-icon"><a href="#" class="dash">
+                    <li class="nav-button nav-button-icon"><a href="/About.aspx" class="dash">
                         <div class="nav-icon">
                             <span class="big-icon icon icon-comments"></span>
                         </div>
@@ -96,26 +101,38 @@
                 </ul>
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
-                        <li><a href="http://www.getaround.com/listcar" id="list-car-btn"></a></li>
-                        <li id="person-dropdown" class="dropdown active nav-button nav-button-icon"><a href="#"
-                            class="dropdown-toggle person-btn" data-toggle="dropdown">
-                            <div class="nav-icon">
-                            </div>
-                        </a>
-                            <ul class="dropdown-menu">
-                                <li class="divider"></li>
+                        <li><a href="PubRoute.aspx" id="list-car-btn"></a></li>
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
                                 <li>
-                                    <asp:LoginView ID="LoginView2" runat="server">
-                                        <AnonymousTemplate>
-                                            <asp:LoginStatus ID="LoginStatus_Login" runat="server" LoginText="登录" LogoutText="退出" />
-                                        </AnonymousTemplate>
-                                        <LoggedInTemplate>
-                                            <asp:LoginStatus ID="LoginStatus_Logout" runat="server" LoginText="登录" LogoutText="退出" />
-                                        </LoggedInTemplate>
-                                    </asp:LoginView>
+                                    <asp:LoginStatus ID="LoginStatus_Login" runat="server" LoginText="登录" />
                                 </li>
-                            </ul>
-                        </li>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <li id="person-dropdown" class="dropdown active nav-button nav-button-icon"><a href="#"
+                                    class="dropdown-toggle person-btn" data-toggle="dropdown">
+                                    <div class="nav-icon">
+                                    </div>
+                                </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="icon-user"></i>帐号设置</a></li>
+                                        <li><a href="#"><i class="icon-list-alt"></i>我的订单</a></li>
+                                        <li><a href="#"><i class="icon-edit"></i>我的作品</a></li>
+                                        <li><a href="#"><i class="icon-shopping-cart"></i>购物车</a></li>
+                                        <li>
+                                            <asp:LoginView ID="LoginView2" runat="server">
+                                                <AnonymousTemplate>
+                                                    <asp:LoginStatus ID="LoginStatus_Login" runat="server" LoginText="登录" />
+                                                </AnonymousTemplate>
+                                                <LoggedInTemplate>
+                                                    <asp:LoginStatus ID="LoginStatus_Logout" runat="server" LogoutText="退出" />
+                                                </LoggedInTemplate>
+                                            </asp:LoginView>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
                     </ul>
                 </div>
                 <!-- /.nav-collapse -->
@@ -124,10 +141,8 @@
         <!-- /navbar-inner -->
     </div>
     <!-- /navbar -->
-    <div class="container">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
     </form>
     <div class="footer-press">
         <div class="content">
@@ -141,22 +156,17 @@
         <ul class="main-links">
           <li>
             <a href="#">
+              关于
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              公共主页
+            </a>
+          </li>
+          <li>
+            <a href="#">
               拼客指南
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              联系我们
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              协议
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              博客
             </a>
           </li>
           <li>
@@ -166,7 +176,7 @@
           </li>
           <li>
             <a href="#">
-              关于我们
+              联系我们
             </a>
           </li>
         </ul>
@@ -181,11 +191,14 @@
               Terms
             </a>
           </li>--%>
+          <li><img border="0" hspace="0" vspace="0" src="http://icon.cnzz.com/pic.gif">
+          </li>
           <li>
-            ©2012 17Pinker
+            ©2012 17Pinker 
           </li>
         </ul>
       </div>
     </footer>
+    <%--<script type="text/javascript" src="http://s21.cnzz.com/stat.php?id=4831198&web_id=4831198"></script>--%>
 </body>
 </html>
