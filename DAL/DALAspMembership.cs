@@ -30,7 +30,7 @@ namespace DAL
 
         public MODEL.User GetUser(Guid providerUserKey)
         {
-            IQuery query = session.CreateQuery("select u from User where u.MemberID=" + providerUserKey.ToString());
+            IQuery query = session.CreateQuery("select u from User u where u.MemberID=" + providerUserKey.ToString());
             MODEL.User user = query.FutureValue<MODEL.User>().Value;
             return user;
         }

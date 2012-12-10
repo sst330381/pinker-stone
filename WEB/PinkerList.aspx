@@ -15,7 +15,7 @@
                 <div class="span8">
                     <div class="card padded2">
                         <div class="form-horizontal">
-                            <label class="control-label-low">
+                            <label class="control-label-lbow">
                                 类型1:</label>
                             <div class="controls form-inline">
                                 <ul class="resutil">

@@ -3,6 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="/Styles/default.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/getaround-min.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="banners">
@@ -29,8 +30,8 @@
                 </div>
                 <div class="row-fluid main-cars">
                     <div id="main_cars" class="span12 viewer">
-                        <div class="viewport nojs">
-                            <div style="width: 1552px;" id="car_list" class="car-list overview">
+                        <div class="viewport">
+                            <div style="width: 1552px;" id="car_list" class="car-list overview" onmouseover="stopscroll();" onmouseout="doscroll()">
                                 <div class="car first">
                                     <a href="http://www.getaround.com/leventhald">
                                         <div style="background: url(http://images.getaround.com/AMIfv94pfrlnTvpDoW0V0gPZFVl8Z432Q97Bk4kWhwUrSq2cTTcMkLm-EdY6t50tQ_9mwWsA9kiYxr2n77aKm5vB-M0wrjzgxG3YIO3sGb8kY_16MRLVZ5ixnpA1QoX5tIlYfGqmV43-b8BvWi8E40EGK0xN1C9zKg/240x150)"
@@ -42,21 +43,21 @@
                                             <img src="https://gettaimg.appspot.com/AMIfv96-bM0ZzH8GMhQsphjG7ylJZ6mheMKnXqF-iy6NTcO3POK2PofGYqHyU0BfZ3F2pDcYTKB4Sbi53G_g8wqufMSlGw8UyTvblqzMFZZYh-FTKycLMn9xF7i51Unq3b2TJjs4dj_gRH5sY18adjShckDU4BBEsg/75x75"
                                                 class="image">
                                         </div>
-                                        <a href="http://www.getaround.com/leventhald" class="car_name">leventhald </a><a
+                                        <a href="http://www.getaround.com/leventhald" class="car_name">username </a><a
                                             href="http://www.getaround.com/leventhald">
                                             <div class="car_make" title="Volkswagen Jetta">
-                                                Volkswagen Jetta
+                                                大众(进口)-Jetta
                                             </div>
                                         </a>
                                         <div class="car_city muted" title="San Francisco, CA">
-                                            San Francisco, CA
+                                            浙江 杭州
                                         </div>
                                         <div class="car_price">
                                             <div class="money">
-                                                $6.50
+                                                ￥7.00
                                             </div>
                                             <div class="time">
-                                                / hour
+                                                / 次
                                             </div>
                                         </div>
                                     </div>
@@ -72,21 +73,21 @@
                                             <img src="http://gettaimg.appspot.com/AMIfv94sDDDsiDy5nZwsMpAUYYo-loTJfS0-RyIgRExo1C9NkgGhi51w--nbIAPlIoDQ-Zs_BnJECsF7zHejfZGvqbZ2Y9bouvw55k28qWUgvX3pJsPQ04uF8PcHq8t2f4cJOgRN2Jd8O8v3I9_IQD93dqxIIRq6ZQ/75x75"
                                                 class="image">
                                         </div>
-                                        <a href="http://www.getaround.com/flashgordon" class="car_name">flashgordon </a>
+                                        <a href="http://www.getaround.com/flashgordon" class="car_name">username </a>
                                         <a href="http://www.getaround.com/flashgordon">
                                             <div class="car_make" title="Volkswagen GTi">
-                                                Volkswagen GTi
+                                                大众GTi
                                             </div>
                                         </a>
                                         <div class="car_city muted" title="Oakland, CA">
-                                            Oakland, CA
+                                            浙江 杭州
                                         </div>
                                         <div class="car_price">
                                             <div class="money">
-                                                $8
+                                                ￥8
                                             </div>
                                             <div class="time">
-                                                / hour
+                                                / 次
                                             </div>
                                         </div>
                                     </div>
@@ -108,14 +109,14 @@
                                             </div>
                                         </a>
                                         <div class="car_city muted" title="San Francisco, CA">
-                                            San Francisco, CA
+                                            浙江 杭州
                                         </div>
                                         <div class="car_price">
                                             <div class="money">
-                                                $6
+                                                ￥10
                                             </div>
                                             <div class="time">
-                                                / hour
+                                                / 次
                                             </div>
                                         </div>
                                     </div>
@@ -133,15 +134,15 @@
                                         </div>
                                         <a href="http://www.getaround.com/toddtimes" class="car_name">toddtimes </a><a href="http://www.getaround.com/toddtimes">
                                             <div class="car_make" title="Volkswagen Jetta">
-                                                Volkswagen Jetta
+                                                大众Jetta
                                             </div>
                                         </a>
                                         <div class="car_city muted" title="San Francisco, CA">
-                                            San Francisco, CA
+                                            浙江 杭州
                                         </div>
                                         <div class="car_price">
                                             <div class="money">
-                                                $7.50
+                                                $5
                                             </div>
                                             <div class="time">
                                                 / hour
@@ -162,18 +163,18 @@
                                         </div>
                                         <a href="http://www.getaround.com/tacoma24" class="car_name">tacoma24 </a><a href="http://www.getaround.com/tacoma24">
                                             <div class="car_make" title="Toyota Tacoma">
-                                                Toyota Tacoma
+                                                丰田 Tacoma
                                             </div>
                                         </a>
                                         <div class="car_city muted" title="San Francisco, CA">
-                                            San Francisco, CA
+                                            浙江 杭州
                                         </div>
                                         <div class="car_price">
                                             <div class="money">
-                                                $10
+                                                ￥10
                                             </div>
                                             <div class="time">
-                                                / hour
+                                                / 次
                                             </div>
                                         </div>
                                     </div>
@@ -191,15 +192,15 @@
                                         </div>
                                         <a href="http://www.getaround.com/hybrid" class="car_name">hybrid </a><a href="http://www.getaround.com/hybrid">
                                             <div class="car_make" title="Honda Civic">
-                                                Honda Civic
+                                                本田 思域
                                             </div>
                                         </a>
                                         <div class="car_city muted" title="San Francisco, CA">
-                                            San Francisco, CA
+                                            浙江 杭州
                                         </div>
                                         <div class="car_price">
                                             <div class="money">
-                                                $6
+                                                ￥6
                                             </div>
                                             <div class="time">
                                                 / hour

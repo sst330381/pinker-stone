@@ -52,7 +52,9 @@ namespace BLL
             IMem.CreateUser(new MODEL.User() { 
                 ID=Guid.NewGuid(),
                 NickName=username,
-                Password=password
+                Password=password,
+                CreateTime=DateTime.Now,
+                LastLoginTime=DateTime.Now
             });
             MembershipUser mu = new MembershipUser("memProvider",
                 username, providerUserKey, "", "", "", true, true, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);

@@ -15,10 +15,16 @@
                             <WizardSteps>
                                 <asp:CreateUserWizardStep runat="server">
                                     <ContentTemplate>
-                                        <table>
+                                        <table style="margin-left: 50px;">
                                             <tr>
                                                 <td align="center" colspan="2">
-                                                    注册新帐户
+                                                    <h2>
+                                                        注册新帐户</h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    &nbsp;
                                                 </td>
                                             </tr>
                                             <tr>
@@ -67,19 +73,30 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td align="center" colspan="2" style="color: red">
-                                                    <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="right">
-                                                    <asp:Label ID="Label1" runat="server" AssociatedControlID="Password">验证码:</asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="txtImgValid" runat="server" Font-Size="0.8em"></asp:TextBox>
-                                                    <asp:ImageButton ID="imgValid" ImageUrl="/ImageValidate.aspx" runat="server" />
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td align="right">
+                                                        E-mail:
+                                                    </td>
+                                                    <td>
+                                                        <asp:TextBox ID="Email" runat="server"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
+                                                            ErrorMessage="必须填写“电子邮件”。" ToolTip="必须填写“电子邮件”。" ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="2" style="color: red">
+                                                        <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="right">
+                                                        <asp:Label ID="Label1" runat="server" AssociatedControlID="Password">验证码:</asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:TextBox ID="txtImgValid" runat="server" Font-Size="0.8em"></asp:TextBox>
+                                                        <asp:ImageButton ID="imgValid" ImageUrl="/ImageValidate.aspx" runat="server" />
+                                                    </td>
+                                                </tr>
                                         </table>
                                     </ContentTemplate>
                                 </asp:CreateUserWizardStep>

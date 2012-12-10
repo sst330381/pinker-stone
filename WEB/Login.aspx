@@ -20,14 +20,16 @@
                             <table cellpadding="1" cellspacing="0" style="border-collapse: collapse;">
                                 <tr>
                                     <td>
-                                        <table cellpadding="0">
+                                        <table cellpadding="0" style="margin-left:80px;">
                                             <tr>
                                                 <td align="center" colspan="2">
-                                                    登录
+                                                    <h2>登录</h2>
                                                 </td>
                                             </tr>
+                                            <tr><td colspan="2">&nbsp;</td></tr>
+                                            <tr><td colspan="2" style="border-top:1px solid #000000">&nbsp;</td></tr>
                                             <tr>
-                                                <td align="left">
+                                                <td align="left" style="padding-right:20px;">
                                                     <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">用户名:</asp:Label>
                                                 </td>
                                                 <td>
@@ -57,7 +59,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td align="right" colspan="2">
+                                                <td align="right" table-condensedcolspan="2">
                                                     <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="登录" ValidationGroup="ctl03" />
                                                 </td>
                                             </tr>

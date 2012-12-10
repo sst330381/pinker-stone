@@ -7,8 +7,8 @@ namespace MODEL
 {
     public class ApplyRelationship
     {
-        public Guid ID { get; set; }
-        public Route Route { get; set; }//路线
-        public User Applicant { get; set; }//申请人
+        public virtual Guid ID { get; set; }
+        public virtual Route Route { get; set; }//路线
+        public virtual User Applicant { get; set; }//申请人
     }
 }

@@ -11,6 +11,7 @@ namespace MODEL.Mapping
         public UserMap()
         {
             Id(x => x.ID);
+
             Map(x => x.NickName);
             Map(x => x.Password);
             Map(x => x.RealName);
@@ -24,7 +25,8 @@ namespace MODEL.Mapping
             Map(x => x.Openid);
             Map(x => x.Opentype).CustomType<int>();
 
-
+            Map(x => x.CreateTime);
+            Map(x => x.LastLoginTime);
         }
     }
 }
