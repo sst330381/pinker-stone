@@ -5,6 +5,7 @@
     <%--<link href="/Styles/widget097.css" rel="stylesheet" type="text/css" />--%>
     <link href="/Styles/pinkerlist.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
+        $(function () { $("#<%=lbltype1_all.ClientID %>").css("display", "block"); $("#<%=lbltype2_finddri.ClientID %>").css("display", "block"); });
         $(function () { $(".resutil>li").click(function () { $(this).parent().find("li").children().css("display", "none"); $(this).children().css("display", "block") }) });
     </script>
 </asp:Content>
@@ -15,14 +16,14 @@
                 <div class="span8">
                     <div class="card padded2">
                         <div class="form-horizontal">
-                            <label class="control-label-lbow">
+                            <label class="control-label-low">
                                 类型1:</label>
                             <div class="controls form-inline">
                                 <ul class="resutil">
-                                    <li tsize="all">全部<span style="display: none;">✔全部 </span></li>
-                                    <li tsize="shortrun">上下班拼车<span style="display: none;">✔上下班拼车 </span></li>
-                                    <li tsize="longrun">长途拼车<span style="display: none;">✔长途拼车 </span></li>
-                                    <li tsize="selfrun">自驾拼车<span style="display: none;">✔自驾拼车 </span></li>
+                                    <li>全部<span id="lbltype1_all" runat="server" style="display: none;">✔全部 </span></li>
+                                    <li>上下班拼车<span id="lbltype1_short" runat="server" style="display: none;">✔上下班拼车 </span></li>
+                                    <li>长途拼车<span id="lbltype1_long" runat="server" style="display: none;">✔长途拼车 </span></li>
+                                    <li>自驾拼车<span id="lbltype1_self" runat="server" style="display: none;">✔自驾拼车 </span></li>
                                 </ul>
                             </div>
                         </div>
@@ -31,8 +32,8 @@
                                 类型2:</label>
                             <div class="controls form-inline">
                                 <ul class="resutil">
-                                    <li tsize="driver">找车主<span style="display: none;">✔找车主 </span></li>
-                                    <li tsize="pinker">找拼客<span style="display: none;">✔找拼客 </span></li>
+                                    <li tsize="driver">找车主<span id="lbltype2_finddri" runat="server" style="display: none;">✔找车主 </span></li>
+                                    <li tsize="pinker">找拼客<span id="lbltype2_findpin" runat="server" style="display: none;">✔找拼客 </span></li>
                                 </ul>
                             </div>
                         </div>
@@ -73,7 +74,7 @@
                             </div>
                         </div>
                         <%--搜索结果钩子----<div id="search_result_hook"></div>--%>
-                        <asp:Repeater ID="Repeater_cars" runat="server">
+                        <asp:Repeater ID="rptcars" runat="server">
                             <ItemTemplate>
                                 <div id="car_results">
                                     <div class="car_result">
@@ -87,7 +88,7 @@
                                                 </div>
                                                 <a href="#" class="title" title="2002 Ford Taurus SES  Sedan, Red">
                                                     <h3>
-                                                        福地创业园(杭州花圃)---滨江高新区
+                                                        <%#Eval("Startpoint")%>---<%#Eval("Destination")%>
                                                     </h3>
                                                 </a>
                                                 <div class="rating">
@@ -97,7 +98,7 @@
                                                             ( 0 ratings ) </a>
                                                 </div>
                                                 <div class="description">
-                                                    寻找杭州上下班拼车的车友，油价涨了，分担一下油费。
+                                                    <%#Eval("Remark")%>（寻找杭州上下班拼车的车友，油价涨了，分担一下油费）
                                                 </div>
                                             </div>
                                             <div class="action span3">
@@ -114,7 +115,7 @@
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
-                        <div id="car_results">
+                        <%--<div id="car_results">
                             <div class="car_result">
                                 <div class="row-fluid">
                                     <div class="information span9">
@@ -150,7 +151,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
                         <div class="pagination pagination-right pagination-large">
                             <ul>
                                 <li><a href="#">«</a></li>

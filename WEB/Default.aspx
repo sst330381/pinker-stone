@@ -3,7 +3,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="/Styles/default.css" rel="stylesheet" type="text/css" />
-    <script src="/Scripts/getaround-min.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="banners">
@@ -24,7 +23,7 @@
                     </div>
                     <div class="main-action">
                         <div class="padded3">
-                            <input type="button" class="btn btn-info btn-xxlarge" value="发布路线" onclick="location.href='/PubRoute.aspx'" />
+                            <input id="btn_pubroute" rel="tooltip" data-original-title="Default tooltip" type="button" class="btn btn-info btn-xxlarge" value="发布路线" onclick="location.href='/PubRoute.aspx'" />
                         </div>
                     </div>
                 </div>

@@ -6,9 +6,9 @@ using FluentNHibernate.Mapping;
 
 namespace MODEL.Mapping
 {
-    public class ApplyRelationshipMap:ClassMap<ApplyRelationship>
+    public class ApplysMap:ClassMap<Applys>
     {
-        public ApplyRelationshipMap()
+        public ApplysMap()
         {
             Id(x => x.ID);
             References<Route>(x => x.Route);

@@ -46,5 +46,10 @@
                                 <img src="img/car1.jpg" height="120" width="104" border="0"></a>
         </div>
     </div>
+    <div>
+        <asp:Label ID="guid" Text="guid" runat="server" />
+        <asp:Label ID="username" Text="username" runat="server" />
+        <asp:Label ID="userpsw" Text="userpsw" runat="server" />
+    </div>
 </body>
 </html>

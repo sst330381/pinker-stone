@@ -9,6 +9,15 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        binduser();
+    }
 
+    private void binduser()
+    {
+        DAL.DALUser dal = new DAL.DALUser();
+        var user=dal.GetUser8Name("pinker3");
+        guid.Text = user.ID.ToString();
+        username.Text = user.Name;
+        userpsw.Text = user.Password;
     }
 }

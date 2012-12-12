@@ -12,21 +12,20 @@ namespace MODEL.Mapping
         {
             Id(x => x.ID);
 
-            Map(x => x.NickName);
+            Map(x => x.Name);
             Map(x => x.Password);
             Map(x => x.RealName);
 
             Map(x => x.Gender);
             Map(x => x.Telphone);
             Map(x => x.Credit);
-            Map(x => x.RegistTime);
+            Map(x => x.Email);
+            Map(x => x.CreateTime);
+            Map(x => x.LastLoginTime);
 
             Map(x => x.Avatar);
             Map(x => x.Openid);
             Map(x => x.Opentype).CustomType<int>();
-
-            Map(x => x.CreateTime);
-            Map(x => x.LastLoginTime);
         }
     }
 }

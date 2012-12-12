@@ -15,7 +15,7 @@
             <div class="span5 offset3">
                 <div class="card">
                     <div class="padded2">
-                    <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate">
+                    <asp:Login ID="Login1" runat="server">
                         <LayoutTemplate>
                             <table cellpadding="1" cellspacing="0" style="border-collapse: collapse;">
                                 <tr>
@@ -53,14 +53,14 @@
                                                     <asp:CheckBox ID="RememberMe" runat="server" /><span class="text-warning" style="margin-left:10px;">下次记住我</span>
                                                 </td>
                                             </tr>
-                                            <tr style="float:left">
+                                            <tr>
                                                 <td align="center" colspan="2" style="color: Red;">
                                                     <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td align="right" table-condensedcolspan="2">
-                                                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="登录" ValidationGroup="ctl03" />
+                                                <td align="right" colspan="2">
+                                                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="登录" ValidationGroup="ctl03" OnClick="LoginButton_Click" />
                                                 </td>
                                             </tr>
                                         </table>

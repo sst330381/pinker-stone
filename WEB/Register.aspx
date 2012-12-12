@@ -9,9 +9,9 @@
             <div class="span5 offset3">
                 <div class="card">
                     <div class="padded2">
-                        <asp:CreateUserWizard runat="server" ID="CreateUserWizard1" CompleteSuccessText="Finish ur Register!"
-                            LoginCreatedUser="true" RequireEmail="false" ContinueDestinationPageUrl="~/PinkerList.aspx"
-                            ContinueButtonText="返回">
+                        <asp:CreateUserWizard runat="server" ID="CreateUserWizard1" CompleteSuccessText="恭喜你! 注册成功! 赶紧去发布路线吧!"
+                            ContinueDestinationPageUrl="~/PinkerList.aspx" ContinueButtonText="返回" OnCreatingUser="CreateUserWizard1_CreatingUser"
+                            Width="335px" onnextbuttonclick="CreateUserWizard1_NextButtonClick">
                             <WizardSteps>
                                 <asp:CreateUserWizardStep runat="server">
                                     <ContentTemplate>
@@ -73,16 +73,14 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <tr>
-                                                    <td align="right">
-                                                        E-mail:
-                                                    </td>
-                                                    <td>
-                                                        <asp:TextBox ID="Email" runat="server"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
-                                                            ErrorMessage="必须填写“电子邮件”。" ToolTip="必须填写“电子邮件”。" ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                                    </td>
-                                                </tr>
+                                                <td align="right">
+                                                    E-mail:
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox ID="Email" runat="server"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
+                                                        ErrorMessage="必须填写“电子邮件”。" ToolTip="必须填写“电子邮件”。" ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                                </td>
                                                 <tr>
                                                     <td align="center" colspan="2" style="color: red">
                                                         <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
@@ -93,13 +91,38 @@
                                                         <asp:Label ID="Label1" runat="server" AssociatedControlID="Password">验证码:</asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtImgValid" runat="server" Font-Size="0.8em"></asp:TextBox>
-                                                        <asp:ImageButton ID="imgValid" ImageUrl="/ImageValidate.aspx" runat="server" />
+                                                        <asp:TextBox ID="txtImgValid" runat="server" Font-Size="0.8em" Width="130px"></asp:TextBox>
+                                                        <asp:ImageButton ID="imgValid" runat="server" ImageUrl="/ImageValidate.aspx" />
                                                     </td>
                                                 </tr>
                                         </table>
                                     </ContentTemplate>
+                                    <%--<CustomNavigationTemplate>
+                                        <asp:Button ID="btnRegist" runat="server" Text="创建用户" OnClick="btnRegist_Click" />
+                                    </CustomNavigationTemplate>--%>
                                 </asp:CreateUserWizardStep>
+                                <asp:CompleteWizardStep runat="server">
+                                    <ContentTemplate>
+                                        <table style="font-size: 100%; width: 335px;">
+                                            <tr>
+                                                <td align="center" colspan="2">
+                                                    完成
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    恭喜你! 注册成功! 赶紧去发布路线吧!
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" colspan="2">
+                                                    <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue"
+                                                        Text="返回" ValidationGroup="CreateUserWizard1" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </ContentTemplate>
+                                </asp:CompleteWizardStep>
                             </WizardSteps>
                         </asp:CreateUserWizard>
                     </div>

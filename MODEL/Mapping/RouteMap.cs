@@ -15,9 +15,13 @@ namespace MODEL.Mapping
             Map(x => x.Destination);
             Map(x => x.Driver);
             Map(x => x.Pinkertype).CustomType<int>();
-            Map(x => x.Passby);
-            Map(x => x.Datetime);
-            Map(x => x.Shorttime);
+            Map(x => x.Godate);
+            Map(x => x.Gotime);
+            Map(x => x.Backdate);
+            Map(x => x.Backtime);
+            Map(x => x.Passby1);
+            Map(x => x.Passby2);
+            Map(x => x.Passby3);
             Map(x => x.Remark);
 
             References(x => x.PublishUser);

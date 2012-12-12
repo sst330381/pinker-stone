@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MODEL
 {
+    /// <summary>
+    /// 发布的路线信息
+    /// </summary>
     public class Route
     {
         public virtual Guid ID { get; set; }
@@ -12,11 +15,15 @@ namespace MODEL
         public virtual string Destination { get; set; }//必填
         public virtual bool Driver { get; set; }//必填
         public virtual PinkerType Pinkertype { get; set; }//必填
-        public virtual string Passby { get; set; }
-        public virtual string Datetime { get; set; }//必填 出发日期
-        public virtual string Shorttime { get; set; }//必填 出发时间
+        public virtual string Godate { get; set; }//必填 出发时间
+        public virtual string Gotime { get; set; }//必填 出发时间
+        public virtual string Backdate { get; set; }//必填 回程时间
+        public virtual string Backtime { get; set; }//必填 回程时间
         //public virtual CarType Cartype { get; set; }
         //public virtual Area Area { get; set; }//必填
+        public virtual string Passby1 { get; set; }
+        public virtual string Passby2 { get; set; }
+        public virtual string Passby3 { get; set; }
         public virtual string Remark { get; set; }
 
         public virtual User PublishUser { get; set; }

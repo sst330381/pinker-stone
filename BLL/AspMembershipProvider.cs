@@ -8,14 +8,14 @@ namespace BLL
 {
     public class AspMembershipProvider : MembershipProvider
     {
-        private IDAL.IAspMembership imem;
-        public IDAL.IAspMembership IMem
+        private DAL.DALUser imem;
+        public DAL.DALUser IMem
         {
             get
             {
                 if (imem == null)
                 {
-                    imem = new DAL.DALAspMembership();
+                    imem = new DAL.DALUser();
                 }
                 return imem;
             }
@@ -39,7 +39,17 @@ namespace BLL
 
         public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            throw new NotImplementedException();
+            var user = IMem.GetUser8Name(username);
+            if (user.Password == oldPassword)
+            {
+                user.Password = newPassword;
+                IMem.UpdateUser(user);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion, string newPasswordAnswer)
@@ -49,22 +59,29 @@ namespace BLL
 
         public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status)
         {
-            IMem.CreateUser(new MODEL.User() { 
-                ID=Guid.NewGuid(),
-                NickName=username,
-                Password=password,
-                CreateTime=DateTime.Now,
-                LastLoginTime=DateTime.Now
-            });
+            var exsit=GetUser(username,true);
+
+            var user = new MODEL.User()
+            {
+                Name = username,
+                Password = password,
+                Opentype = MODEL.OpenType.localuser,
+                CreateTime = DateTime.Now,
+                LastLoginTime = DateTime.Now
+            };
+            IMem.CreateUser(user);
             MembershipUser mu = new MembershipUser("memProvider",
-                username, providerUserKey, "", "", "", true, true, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
+                username, user.ID, email, "", "", true, true, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
             status = MembershipCreateStatus.Success;
-            return mu; 
+            return mu;
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
         {
-            throw new NotImplementedException();
+            var user = IMem.GetUser8Name(username);
+            user.Frozen = true;
+            IMem.UpdateUser(user);
+            return true;
         }
 
         public override bool EnablePasswordReset
@@ -104,12 +121,23 @@ namespace BLL
 
         public override MembershipUser GetUser(string username, bool userIsOnline)
         {
-            throw new NotImplementedException();
+            MODEL.User user = IMem.GetUser8Name(username);
+            if (user == null) return null;
+            MembershipUser mu = new MembershipUser("memProvider",
+                 username, user.ID,user.Email,string.Empty, string.Empty,
+                 true, true, user.CreateTime,
+                 DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now);
+            return mu;
         }
 
         public override MembershipUser GetUser(object providerUserKey, bool userIsOnline)
         {
-            throw new NotImplementedException();
+            var user = IMem.GetUser8Id((Guid)providerUserKey);
+            if (user == null) return null;
+            MembershipUser mu = new MembershipUser("memProvider", user.Name,
+                user.ID, user.Email, string.Empty, string.Empty, true, true, user.CreateTime, DateTime.Now,
+                DateTime.Now, DateTime.Now, DateTime.Now);
+            return mu;
         }
 
         public override string GetUserNameByEmail(string email)
@@ -174,7 +202,7 @@ namespace BLL
 
         public override bool ValidateUser(string username, string password)
         {
-            MODEL.User user=IMem.GetUser(username);
+            MODEL.User user = IMem.GetUser8Name(username);
             if (user == null)
                 return false;
             else

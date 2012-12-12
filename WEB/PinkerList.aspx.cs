@@ -4,21 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLL;
 
-public partial class PinkerList : System.Web.UI.Page
+public partial class PinkerList : BasePage
 {
+    BLLRoute bllroute = new BLLRoute();
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (!IsPostBack)
-        //{
-        //    if (Request["start"] != null)
-        //    {
-        //        txtStart.Text = Request["start"];
-        //    }
-        //    if (Request["dest"] != null)
-        //    {
-        //        txtDest.Text = Request["dest"];
-        //    }
-        //}
+        if (!IsPostBack)
+        {
+            BindPinklist();
+        }
     }
+
+    private void BindPinklist()
+    {
+        var routes=bllroute.GetRoute();
+        rptcars.DataSource = routes;
+        rptcars.DataBind();
+    }
+
 }

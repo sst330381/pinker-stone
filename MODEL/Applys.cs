@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MODEL
 {
-    public class ApplyRelationship
+    public class Applys
     {
         public virtual Guid ID { get; set; }
         public virtual Route Route { get; set; }//路线

@@ -108,7 +108,7 @@
                                     class="dropdown-toggle person-btn" data-toggle="dropdown">
                                     <div class="nav-icon">
                                     </div>
-                                </a>
+                                    <asp:LoginName CssClass="label-icon" FormatString="{0}" runat="server" /> </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#"><i class="icon-user"></i>帐号设置</a></li>
                                         <li><a href="#"><i class="icon-list-alt"></i>我的订单</a></li>

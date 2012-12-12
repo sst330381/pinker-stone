@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspMembershipProvider.cs" />
+    <Compile Include="BLLRoute.cs" />
     <Compile Include="BLLUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,10 +58,6 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{8FABE1FA-118C-4CE8-9F6A-8437674C2762}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IDAL\IDAL.csproj">
-      <Project>{73258E51-DFEC-403E-BFA9-BD0D269AE5E4}</Project>
-      <Name>IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\MODEL\MODEL.csproj">
       <Project>{692613CD-872B-4811-BD89-312A5AB87DCB}</Project>

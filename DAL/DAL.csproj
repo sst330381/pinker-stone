@@ -56,17 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DALAspMembership.cs" />
+    <Compile Include="DALRoute.cs" />
     <Compile Include="DALUser.cs" />
     <Compile Include="Helper\DALBase.cs" />
     <Compile Include="Helper\HybridSessionBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IDAL\IDAL.csproj">
-      <Project>{73258E51-DFEC-403E-BFA9-BD0D269AE5E4}</Project>
-      <Name>IDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MODEL\MODEL.csproj">
       <Project>{692613CD-872B-4811-BD89-312A5AB87DCB}</Project>
       <Name>MODEL</Name>
