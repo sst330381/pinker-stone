@@ -112,7 +112,7 @@
                         <label class="control-label-low">
                             * 起点:</label>
                         <div class="controls">
-                            <asp:TextBox ID="Startpoint" placeholder="起点" runat="server" />
+                            <asp:TextBox ID="Startpoint" placeholder="起点" runat="server" Validate="NotNull"/>
                             终点:
                             <asp:TextBox ID="Destination" placeholder="终点" runat="server" />
                         </div>

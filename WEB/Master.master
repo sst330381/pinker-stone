@@ -120,7 +120,7 @@
                                                     <asp:LoginStatus ID="LoginStatus_Login" runat="server" LoginText="登录" />
                                                 </AnonymousTemplate>
                                                 <LoggedInTemplate>
-                                                    <asp:LoginStatus ID="LoginStatus_Logout" runat="server" LogoutText="退出" />
+                                                    <asp:LoginStatus ID="LoginStatus_Logout" runat="server" LogoutText="退出"/>
                                                 </LoggedInTemplate>
                                             </asp:LoginView>
                                         </li>
