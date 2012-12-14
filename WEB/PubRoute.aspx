@@ -2,6 +2,7 @@
     Inherits="PubRoute" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
     <style type="text/css">
         .lead
         {
@@ -112,9 +113,32 @@
                         <label class="control-label-low">
                             * 起点:</label>
                         <div class="controls">
-                            <asp:TextBox ID="Startpoint" placeholder="起点" runat="server" Validate="NotNull"/>
+                            <asp:TextBox ID="Startpoint" placeholder="起点" runat="server" Validate="NotNull" />
                             终点:
                             <asp:TextBox ID="Destination" placeholder="终点" runat="server" />
+                            <a href="#mapModal" role="button" class="btn btn-success" data-toggle="modal">查看地图</a>
+                            <div id="mapModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        ×</button>
+                                    <h3 id="myModalLabel">
+                                        地图搜索</h3>
+                                </div>
+                                <div class="modal-body" id="bmap" style="height: 300px;">
+                                </div>
+                                <div id="r-result" style="padding: 14px 15px 15px;float:left" >
+                                    起点:&nbsp;<input type="text" id="startplace" size="20" autocomplete="off" placeholder="请输入起始点">
+                                    &nbsp;终点:&nbsp;<input type="text" id="destplace" size="20" autocomplete="off" placeholder="请输入终点">
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                        关闭</button>
+                                    <button class="btn btn-primary">
+                                        保存</button>
+                                </div>
+                            </div>
+                            <script src="/Scripts/map-later.js" type="text/javascript"></script>
                         </div>
                     </div>
                     <div class="form-horizontal">
@@ -186,7 +210,7 @@
                         <p class="lead">
                         </p>
                         <asp:Button ID="btnPub" CssClass="btn btn-large btn-primary" Text="马上发布" runat="server"
-                            OnClick="btnPub_Click" OnClientClick="return pubcheck();"/>
+                            OnClick="btnPub_Click" OnClientClick="return pubcheck();" />
                     </div>
                 </div>
                 <div class="span4">

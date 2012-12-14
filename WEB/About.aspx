@@ -83,7 +83,7 @@
                 </h3>
                 <div class="input-append" style="margin: 100px auto auto 200px;">
                     <input type="text" class="span6" style="height: 30px;" />
-                    <input type="submit" class="btn" value="查询" style="height: 40px; width: 100px;" />
+                    <input type="button" class="btn btn-info" value="查询" style="height: 40px; width: 100px;margin:auto auto 9px -5px;"/>
                 </div>
             </div>
         </div>
