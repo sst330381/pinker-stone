@@ -15,6 +15,26 @@ namespace BLL
             daluser.CreateUser(user);
         }
 
+        public void CreateUser(string username, string openid, MODEL.OpenType opentype)
+        {
+            MODEL.User user = GetUser8Name(username);
+            while (user != null)
+            {
+                username += user + "0";
+                user = GetUser8Name(username);
+            }
+            MODEL.User newuser = new MODEL.User()
+            {
+                Name = username,
+                Openid = openid,
+                Opentype = opentype,
+                Avatar = "/img/mavatar/M_001.jpg",
+                CreateTime=DateTime.Now,
+                LastLoginTime=DateTime.Now
+            };
+            daluser.CreateUser(newuser);
+        }
+
         public void UpdateUser(User user)
         {
             daluser.UpdateUser(user);
@@ -45,6 +65,11 @@ namespace BLL
         public User GetUser8Email(string email)
         {
             return daluser.GetUser8Email(email);
+        }
+
+        public User GetUesr8Openid(string openid,MODEL.OpenType opentype)
+        {
+            return daluser.GetUesr8Openid(openid, opentype);
         }
     }
 }

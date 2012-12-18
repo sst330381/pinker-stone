@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Applys.cs" />
     <Compile Include="Area.cs" />
+    <Compile Include="Helper\Qweiboinfo.cs" />
     <Compile Include="Mapping\ApplysMap.cs" />
     <Compile Include="Mapping\AreaMap.cs" />
     <Compile Include="Mapping\RouteMap.cs" />

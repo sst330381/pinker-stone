@@ -13,6 +13,8 @@ namespace MODEL.Mapping
             Id(x => x.ID);
             Map(x => x.Startpoint);
             Map(x => x.Destination);
+            Map(x => x.StartLocation);
+            Map(x => x.DestLocation);
             Map(x => x.Driver);
             Map(x => x.Pinkertype).CustomType<int>();
             Map(x => x.Godate);
@@ -23,8 +25,10 @@ namespace MODEL.Mapping
             Map(x => x.Passby2);
             Map(x => x.Passby3);
             Map(x => x.Remark);
+            Map(x => x.Miles);
+            Map(x => x.Price);
 
-            References(x => x.PublishUser);
+            References(x => x.PublishUser).Not.LazyLoad();
             Map(x => x.ConnectName);
             Map(x => x.ConnectPhone);
         }

@@ -234,7 +234,7 @@
   color: #b3b3b3;
 }
 /* line 128, ../sass/app/search/_search.sass */
-#list #sort {
+#resultlist #sort {
   text-align: center;
   padding: 10px;
   border: 1px solid #d5d5d0;
@@ -247,27 +247,27 @@
   border-radius: 3px;
 }
 /* line 136, ../sass/app/search/_search.sass */
-#list #sort #sort_text .gray {
+#resultlist #sort #sort_text .gray {
   color: #888883;
   padding: 0px 4px;
 }
 /* line 139, ../sass/app/search/_search.sass */
-#list #sort #sort_text .current_sort {
+#resultlist #sort #sort_text .current_sort {
   color: #f78b20;
   cursor: default;
 }
 /* line 142, ../sass/app/search/_search.sass */
-#list #sort #sort_text .other_sort {
+#resultlist #sort #sort_text .other_sort {
   color: #777777;
   cursor: pointer;
 }
 /* line 145, ../sass/app/search/_search.sass */
-#list #car_results {
+#resultlist #car_results {
   position: relative;
   margin-bottom: 20px;
 }
 /* line 149, ../sass/app/search/_search.sass */
-#list #car_results .title h3 {
+#resultlist #car_results .title h3 {
   color: #00a1b1;
   white-space: nowrap;
   overflow: hidden;
@@ -276,54 +276,54 @@
   text-overflow: ellipsis;
 }
 /* line 152, ../sass/app/search/_search.sass */
-#list #car_results .duration {
+#resultlist #car_results .duration {
   font-family: "微软雅黑";
   font-size: 14px;
   position: relative;
   top: 2px;
 }
 /* line 157, ../sass/app/search/_search.sass */
-#list #car_results .distance {
+#resultlist #car_results .distance {
   font-weight: bold;
   line-height: 20px;
   margin-bottom: 5px;
 }
 /* line 161, ../sass/app/search/_search.sass */
-#list #car_results .distance .icon,
-#list #car_results .distance .muted {
+#resultlist #car_results .distance .icon,
+#resultlist #car_results .distance .muted {
   font-weight: normal;
 }
 /* line 164, ../sass/app/search/_search.sass */
-#list #car_results .distance .icon {
+#resultlist #car_results .distance .icon {
   color: #afafa9;
   margin-right: 2px;
 }
 /* line 167, ../sass/app/search/_search.sass */
-#list #search_result_hook {
+#resultlist #search_result_hook {
   position: relative;
 }
 /* line 169, ../sass/app/search/_search.sass */
-#list #car_results .car_result, #list #search_result_hook .car_result {
+#resultlist #car_results .car_result, #resultlist #search_result_hook .car_result {
   padding: 20px;
   border-bottom: 1px solid #afafa9;
 }
 /* line 172, ../sass/app/search/_search.sass */
-#list #car_results .emphasis, #list #search_result_hook .emphasis {
+#resultlist #car_results .emphasis, #resultlist #search_result_hook .emphasis {
   color: #4d4d4d;
   font-weight: 700;
 }
 /* line 175, ../sass/app/search/_search.sass */
-#list #car_results .photo, #list #search_result_hook .photo {
+#resultlist #car_results .photo, #resultlist #search_result_hook .photo {
   position: relative;
 }
 /* line 177, ../sass/app/search/_search.sass */
-#list #car_results .carkit_overlay, #list #search_result_hook .carkit_overlay {
+#resultlist #car_results .carkit_overlay, #resultlist #search_result_hook .carkit_overlay {
   position: absolute;
   top: 0px;
   left: 0px;
 }
 /* line 181, ../sass/app/search/_search.sass */
-#list #car_results .car_photo, #list #search_result_hook .car_photo {
+#resultlist #car_results .car_photo, #resultlist #search_result_hook .car_photo {
   width: 150px;
   height: 100px;
   margin-right: 15px;
@@ -334,58 +334,58 @@
   border-radius: 3px;
 }
 /* line 187, ../sass/app/search/_search.sass */
-#list #car_results .photo {
+#resultlist #car_results .photo {
   float: left;
 }
 /* line 189, ../sass/app/search/_search.sass */
-#list #car_results .action {
+#resultlist #car_results .action {
   text-align: center;
 }
 /* line 191, ../sass/app/search/_search.sass */
-#list #car_results .badge, #list #search_result_hook .badge {
+#resultlist #car_results .badge, #resultlist #search_result_hook .badge {
   top: 63px;
   color: #009900;
   font-weight: 600;
 }
 /* line 195, ../sass/app/search/_search.sass */
-#list #car_results .request, #list #search_result_hook .request, #list #car_results .in_queue, #list #search_result_hook .in_queue, #list #car_results .not_available, #list #search_result_hook .not_available, #list #car_results .rented_out, #list #search_result_hook .rented_out, #list #car_results .manual_transmission, #list #search_result_hook .manual_transmission {
+#resultlist #car_results .request, #resultlist #search_result_hook .request, #resultlist #car_results .in_queue, #resultlist #search_result_hook .in_queue, #resultlist #car_results .not_available, #resultlist #search_result_hook .not_available, #resultlist #car_results .rented_out, #resultlist #search_result_hook .rented_out, #resultlist #car_results .manual_transmission, #resultlist #search_result_hook .manual_transmission {
   bottom: -2px;
   height: 29px;
 }
 /* line 199, ../sass/app/search/_search.sass */
-#list #car_results .request, #list #search_result_hook .request {
+#resultlist #car_results .request, #resultlist #search_result_hook .request {
   text-align: center;
 }
 /* line 204, ../sass/app/search/_search.sass */
-#list #car_results .hover_details, #list #search_result_hook .hover_details {
+#resultlist #car_results .hover_details, #resultlist #search_result_hook .hover_details {
   display: none;
 }
 /* line 206, ../sass/app/search/_search.sass */
-#list #car_results .in_queue, #list #search_result_hook .in_queue {
+#resultlist #car_results .in_queue, #resultlist #search_result_hook .in_queue {
   color: #46a546;
 }
 /* line 208, ../sass/app/search/_search.sass */
-#list #car_results .in_queue h3 {
+#resultlist #car_results .in_queue h3 {
   display: block;
   color: #46a546;
 }
 /* line 211, ../sass/app/search/_search.sass */
-#list #car_results .request h3 {
+#resultlist #car_results .request h3 {
   display: none;
 }
 /* line 213, ../sass/app/search/_search.sass */
-#list #car_results .in_queue button {
+#resultlist #car_results .in_queue button {
   display: none;
 }
 /* line 215, ../sass/app/search/_search.sass */
-#list #car_results .request button {
+#resultlist #car_results .request button {
   margin: 0 41px;
   margin-left: 22%;
   width: 100px;
   white-space: nowrap;
 }
 /* line 226, ../sass/app/search/_search.sass */
-#list #car_results .list_loading, #list #search_result_hook .list_loading {
+#resultlist #car_results .list_loading, #resultlist #search_result_hook .list_loading {
   display: none;
   position: absolute;
   top: 0px;

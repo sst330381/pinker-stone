@@ -8,11 +8,14 @@ namespace MODEL
     /// <summary>
     /// 发布的路线信息
     /// </summary>
+    //[Serializable]
     public class Route
     {
         public virtual Guid ID { get; set; }
         public virtual string Startpoint { get; set; }//必填
         public virtual string Destination { get; set; }//必填
+        public virtual string StartLocation { get; set; }
+        public virtual string DestLocation { get; set; }
         public virtual bool Driver { get; set; }//必填
         public virtual PinkerType Pinkertype { get; set; }//必填
         public virtual string Godate { get; set; }//必填 出发时间
@@ -25,6 +28,8 @@ namespace MODEL
         public virtual string Passby2 { get; set; }
         public virtual string Passby3 { get; set; }
         public virtual string Remark { get; set; }
+        public virtual string Price { get; set; }
+        public virtual string Miles { get; set; }
 
         public virtual User PublishUser { get; set; }
         public virtual string ConnectName { get; set; }//必填

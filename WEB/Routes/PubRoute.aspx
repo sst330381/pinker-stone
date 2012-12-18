@@ -3,29 +3,22 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
-    <style type="text/css">
-        .lead
-        {
-            font-family: "sommet-rounded" , Helvetica, Arial, sans-serif;
-            font-size: 20px;
-            color: #888883;
-            line-height: 20px;
-            padding-top: 6px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #afafa9;
-            margin-bottom: 20px;
-            line-height: 30px;
-            text-shadow: 0 1px 0 white;
-        }
-    </style>
     <script type="text/javascript">
+        function pubcheck() {
+            return true;
+        };
         $(function () {
+            $("#<%=datepicker_otherrun.ClientID %>").datepicker({ format: 'yyyy-mm-dd' });
+            $("#<%=datepicker_longrun.ClientID %>").datepicker({ format: 'yyyy-mm-dd' });
+            $.cookie("pubtype1", "host");
+            $.cookie("pubtype2", "short");
             $("#lbltype1_host").click(function () { $.cookie("pubtype1", "host"); });
             $("#lbltype1_pinker").click(function () { $.cookie("pubtype1", "pinker"); });
             $("#lbltype2_short").click(function () { $.cookie("pubtype2", "short"); });
             $("#lbltype2_long").click(function () { $.cookie("pubtype2", "long"); });
             $("#lbltype2_self").click(function () { $.cookie("pubtype2", "self"); });
             $("#<%=lbltype2_shortrunspan.ClientID %>").css("display", "block");
+            $("#btnmap").click(function () { $("#mapdiv").toggle(); });
             $(".resutil>li").click(function () {
                 $(this).parent().find("li").children().css("display", "none");
                 $(this).children().css("display", "block");
@@ -52,13 +45,6 @@
                         break;
                 }
             });
-            function pubcheck() {
-                alert('123');
-                if ($("#<%=Startpoint.ClientID %>").val() == "") {
-                    alert('tooltip');
-                }
-                return false;
-            };
             $("#<%=select_shortrun.ClientID %>").click(function () {
                 $("#<%=select_shortrun.ClientID %>").children().each(function () {
                     if ($(this).attr("selected") == "selected" && $(this).val() == "其他") {
@@ -80,7 +66,7 @@
                     <h1>
                         发布路线
                     </h1>
-                    <p class="lead">
+                    <p class="leadnew">
                         建议您填写以下信息,完整的信息有助于您获取更多的机会!
                     </p>
                     <div class="form-horizontal">
@@ -113,34 +99,18 @@
                         <label class="control-label-low">
                             * 起点:</label>
                         <div class="controls">
-                            <asp:TextBox ID="Startpoint" placeholder="起点" runat="server" Validate="NotNull" />
+                            <asp:TextBox ID="startplace" autocomplete="off" placeholder="请输入起点" runat="server" />
                             终点:
-                            <asp:TextBox ID="Destination" placeholder="终点" runat="server" />
-                            <a href="#mapModal" role="button" class="btn btn-success" data-toggle="modal">查看地图</a>
-                            <div id="mapModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                        ×</button>
-                                    <h3 id="myModalLabel">
-                                        地图搜索</h3>
-                                </div>
-                                <div class="modal-body" id="bmap" style="height: 300px;">
-                                </div>
-                                <div id="r-result" style="padding: 14px 15px 15px;float:left" >
-                                    起点:&nbsp;<input type="text" id="startplace" size="20" autocomplete="off" placeholder="请输入起始点">
-                                    &nbsp;终点:&nbsp;<input type="text" id="destplace" size="20" autocomplete="off" placeholder="请输入终点">
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn" data-dismiss="modal" aria-hidden="true">
-                                        关闭</button>
-                                    <button class="btn btn-primary">
-                                        保存</button>
-                                </div>
-                            </div>
-                            <script src="/Scripts/map-later.js" type="text/javascript"></script>
+                            <asp:TextBox ID="destplace" autocomplete="off" placeholder="请输入终点" runat="server" />
+                            <a id="btnmap" class="btn btn-success">查看地图</a>
                         </div>
                     </div>
+                    <div id="mapdiv" class="hide" style="margin-top: 10px; border: 1px solid #BBB; -webkit-border-radius: 4px;
+                        -moz-border-radius: 4px; border-radius: 4px;">
+                        <div id="bmap" style="height: 300px;">
+                        </div>
+                    </div>
+                    <script src="/Scripts/pubroute.js" type="text/javascript"></script>
                     <div class="form-horizontal">
                         <label class="control-label-low">
                             * 出发时间</label>
@@ -164,7 +134,7 @@
                                 <asp:ListItem Text="5" />
                                 <asp:ListItem Text="6" />
                                 <asp:ListItem Text="7" />
-                                <asp:ListItem Text="8" />
+                                <asp:ListItem Selected="True" Text="8" />
                                 <asp:ListItem Text="9" />
                                 <asp:ListItem Text="10" />
                                 <asp:ListItem Text="11" />
@@ -221,7 +191,7 @@
                             </h3>
                         </div>
                         <div class="padded2">
-                            aaaaaaaaaaaaaaaaaaaa
+                            
                         </div>
                     </div>
                 </div>

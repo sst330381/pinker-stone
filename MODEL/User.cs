@@ -30,7 +30,7 @@ namespace MODEL
     public enum OpenType
     {
         localuser,
-        qquser,
+        qqwbuser,
         sinauser,
         renrenuser
     }

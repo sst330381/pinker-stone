@@ -92,14 +92,11 @@
                                                     </td>
                                                     <td>
                                                         <asp:TextBox ID="txtImgValid" runat="server" Font-Size="0.8em" Width="130px"></asp:TextBox>
-                                                        <asp:ImageButton ID="imgValid" runat="server" ImageUrl="/ImageValidate.aspx" />
+                                                        <asp:ImageButton ID="imgValid" runat="server" ImageUrl="/Account/ImageValidate.aspx" />
                                                     </td>
                                                 </tr>
                                         </table>
                                     </ContentTemplate>
-                                    <%--<CustomNavigationTemplate>
-                                        <asp:Button ID="btnRegist" runat="server" Text="创建用户" OnClick="btnRegist_Click" />
-                                    </CustomNavigationTemplate>--%>
                                 </asp:CreateUserWizardStep>
                                 <asp:CompleteWizardStep runat="server">
                                     <ContentTemplate>

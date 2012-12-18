@@ -9,6 +9,7 @@ using BLL;
 public partial class PinkerList : BasePage
 {
     BLLRoute bllroute = new BLLRoute();
+    public int resultcout;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,6 +22,7 @@ public partial class PinkerList : BasePage
     private void BindPinklist()
     {
         var routes=bllroute.GetRoute();
+        resultcout = routes.Count;
         rptcars.DataSource = routes;
         rptcars.DataBind();
     }

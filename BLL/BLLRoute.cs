@@ -11,9 +11,9 @@ namespace BLL
     {
         DALRoute dalroute = new DALRoute();
 
-        public void CreateRoute(User publisher,string type1, string type2, string start, 
-            string desti, string selectshort,string datetimeother, string datetimelong, string dphour, 
-            string dpminutes,string pb1, string pb2, string pb3, string appendtxt, string conname, string conphone)
+        public void CreateRoute(User publisher, string type1, string type2, string start,
+            string desti, string startlocation, string destlocation, string selectshort, string datetimeother, string datetimelong, string dphour,
+            string dpminutes, string pb1, string pb2, string pb3, string appendtxt, string conname, string conphone,string miles)
         {
 
             //如果是车主
@@ -21,21 +21,24 @@ namespace BLL
             {
                 var route = new Route()
                 {
-                    PublishUser=publisher,
+                    PublishUser = publisher,
                     Driver = true,
                     Pinkertype = PinkerType.上下班拼车,
                     Startpoint = start,
                     Destination = desti,
+                    StartLocation = startlocation ?? "",
+                    DestLocation = destlocation ?? "",
                     Godate = selectshort == "其他" ? datetimeother : selectshort,
-                    Gotime=dphour+":"+dpminutes,
-                    Backdate=null,
-                    Backtime=null,
-                    Passby1=pb1,
-                    Passby2=pb2,
-                    Passby3=pb3,
-                    Remark=appendtxt,
-                    ConnectName=conname,
-                    ConnectPhone=conphone
+                    Gotime = dphour + ":" + dpminutes,
+                    Backdate = null,
+                    Backtime = null,
+                    Passby1 = pb1,
+                    Passby2 = pb2,
+                    Passby3 = pb3,
+                    Remark = appendtxt,
+                    ConnectName = conname,
+                    ConnectPhone = conphone,
+                    Miles=miles
                 };
                 dalroute.CreateRoute(route);
                 return;
@@ -44,11 +47,13 @@ namespace BLL
             {
                 var route = new Route()
                 {
-                    PublishUser=publisher,
+                    PublishUser = publisher,
                     Driver = true,
                     Pinkertype = PinkerType.长途拼车,
                     Startpoint = start,
                     Destination = desti,
+                    StartLocation = startlocation ?? "",
+                    DestLocation = destlocation ?? "",
                     Godate = datetimelong,
                     Gotime = dphour + ":" + dpminutes,
                     Backdate = null,
@@ -58,7 +63,8 @@ namespace BLL
                     Passby3 = pb3,
                     Remark = appendtxt,
                     ConnectName = conname,
-                    ConnectPhone = conphone
+                    ConnectPhone = conphone,
+                    Miles = miles
                 };
                 dalroute.CreateRoute(route);
             }
@@ -71,6 +77,8 @@ namespace BLL
                     Pinkertype = PinkerType.自驾游拼车,
                     Startpoint = start,
                     Destination = desti,
+                    StartLocation = startlocation ?? "",
+                    DestLocation = destlocation ?? "",
                     Godate = datetimelong,
                     Gotime = dphour + ":" + dpminutes,
                     Backdate = null,
@@ -80,7 +88,8 @@ namespace BLL
                     Passby3 = pb3,
                     Remark = appendtxt,
                     ConnectName = conname,
-                    ConnectPhone = conphone
+                    ConnectPhone = conphone,
+                    Miles = miles
                 };
                 dalroute.CreateRoute(route);
                 return;
@@ -96,13 +105,16 @@ namespace BLL
                     Pinkertype = PinkerType.上下班拼车,
                     Startpoint = start,
                     Destination = desti,
+                    StartLocation = startlocation ?? "",
+                    DestLocation = destlocation ?? "",
                     Godate = selectshort == "其他" ? datetimeother : selectshort,
                     Gotime = dphour + ":" + dpminutes,
                     Backdate = null,
                     Backtime = null,
                     Remark = appendtxt,
                     ConnectName = conname,
-                    ConnectPhone = conphone
+                    ConnectPhone = conphone,
+                    Miles = miles
                 };
                 dalroute.CreateRoute(route);
                 return;
@@ -116,13 +128,16 @@ namespace BLL
                     Pinkertype = PinkerType.长途拼车,
                     Startpoint = start,
                     Destination = desti,
+                    StartLocation = startlocation ?? "",
+                    DestLocation = destlocation ?? "",
                     Godate = datetimelong,
                     Gotime = dphour + ":" + dpminutes,
                     Backdate = null,
                     Backtime = null,
                     Remark = appendtxt,
                     ConnectName = conname,
-                    ConnectPhone = conphone
+                    ConnectPhone = conphone,
+                    Miles = miles
                 };
                 dalroute.CreateRoute(route);
                 return;
@@ -136,13 +151,16 @@ namespace BLL
                     Pinkertype = PinkerType.上下班拼车,
                     Startpoint = start,
                     Destination = desti,
+                    StartLocation = startlocation ?? "",
+                    DestLocation = destlocation ?? "",
                     Godate = datetimelong,
                     Gotime = dphour + ":" + dpminutes,
                     Backdate = null,
                     Backtime = null,
                     Remark = appendtxt,
                     ConnectName = conname,
-                    ConnectPhone = conphone
+                    ConnectPhone = conphone,
+                    Miles = miles
                 };
                 dalroute.CreateRoute(route);
                 return;
@@ -153,6 +171,11 @@ namespace BLL
         public IList<Route> GetRoute()
         {
             return dalroute.GetRoute();
+        }
+
+        public Route GetRoute(Guid guid)
+        {
+            return dalroute.GetRoute(guid);
         }
     }
 }

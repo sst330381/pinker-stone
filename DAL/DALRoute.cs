@@ -21,5 +21,12 @@ namespace DAL
             IList<Route> routes = query.Future<Route>().ToList();
             return routes;
         }
+
+        public Route GetRoute(Guid guid)
+        {
+            IQuery query = session.CreateQuery("from Route r where r.ID='"+guid+"'");
+            Route route = query.FutureValue<Route>().Value;
+            return route;
+        }
     }
 }

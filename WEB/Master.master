@@ -7,8 +7,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="Styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Styles/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/datepicker.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/Scripts/bootstrap-datepicker.js" type="text/javascript"></script>
     <script src="/Scripts/jquery.cookie.js" type="text/javascript"></script>
     <script src="/Scripts/timer.js" type="text/javascript"></script>
     <style type="text/css">
@@ -71,9 +73,9 @@
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="/default.aspx">拼客网</a>
+                <a class="brand" href="/default.aspx">17Pinker</a>
                 <ul class="nav">
-                    <li class="nav-button nav-button-icon"><a href="/PinkerList.aspx" class="trips">
+                    <li class="nav-button nav-button-icon"><a href="/Routes/PinkerList.aspx" class="trips">
                         <div class="nav-icon">
                         </div>
                         <div class="label-icon">
@@ -91,12 +93,19 @@
                             <span class="big-icon icon icon-comments"></span>
                         </div>
                         <div class="label-icon">
-                            帮助</div>
+                            社区</div>
                     </a></li>
                 </ul>
                 <div class="nav-collapse">
                     <ul class="nav pull-right">
-                        <li><a href="PubRoute.aspx" id="list-car-btn"></a></li>
+                        <li><a href="/Routes/PubRoute.aspx" id="list-car-btn"></a></li>
+                        <%--<li class="nav-button nav-button-icon"><a href="/Routes/PubRoute.aspx" class="trips">
+                            <div class="nav-icon">
+                                <span class="big-icon icon icon-comments"></span>
+                            </div>
+                            <div class="label-icon">
+                                发布路线</div>
+                        </a></li>--%>
                         <asp:LoginView ID="LoginView1" runat="server">
                             <AnonymousTemplate>
                                 <li>
@@ -108,9 +117,10 @@
                                     class="dropdown-toggle person-btn" data-toggle="dropdown">
                                     <div class="nav-icon">
                                     </div>
-                                    <asp:LoginName CssClass="label-icon" FormatString="{0}" runat="server" /> </a>
+                                    <asp:LoginName CssClass="label-icon" FormatString="{0}" runat="server" />
+                                </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="icon-user"></i>帐号设置</a></li>
+                                        <li><a href="/Account/Userinfo.aspx"><i class="icon-user"></i>帐号设置</a></li>
                                         <li><a href="#"><i class="icon-list-alt"></i>我的订单</a></li>
                                         <li><a href="#"><i class="icon-edit"></i>我的作品</a></li>
                                         <li><a href="#"><i class="icon-shopping-cart"></i>购物车</a></li>
@@ -120,7 +130,7 @@
                                                     <asp:LoginStatus ID="LoginStatus_Login" runat="server" LoginText="登录" />
                                                 </AnonymousTemplate>
                                                 <LoggedInTemplate>
-                                                    <asp:LoginStatus ID="LoginStatus_Logout" runat="server" LogoutText="退出"/>
+                                                    <asp:LoginStatus ID="LoginStatus_Logout" runat="server" LogoutText="退出" />
                                                 </LoggedInTemplate>
                                             </asp:LoginView>
                                         </li>
@@ -128,6 +138,10 @@
                                 </li>
                             </LoggedInTemplate>
                         </asp:LoginView>
+                        <%--<li id="info-dropdown" class="dropdown nav-button nav-button-icon"><a class="dropdown-toggle info-btn">
+                            <div class="nav-icon">
+                            </div>
+                        </a></li>--%>
                     </ul>
                 </div>
                 <!-- /.nav-collapse -->

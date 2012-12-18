@@ -48,5 +48,12 @@ namespace DAL
             MODEL.User user = query.FutureValue<MODEL.User>().Value;
             return user;
         }
+
+        public User GetUesr8Openid(string openid, MODEL.OpenType opentype)
+        {
+            IQuery query = session.CreateQuery("select u from User u where u.Openid='" + openid + "' and u.Opentype=" + (int)opentype);
+            MODEL.User user = query.FutureValue<MODEL.User>().Value;
+            return user;
+        }
     }
 }
