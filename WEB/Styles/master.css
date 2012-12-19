@@ -1,0 +1,134 @@
+﻿.navbar .nav .text-link .icon:before {
+  color: #eadbc9;
+  margin-right: 2px;
+}
+/* line 10, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav li.nav-button-icon > a {
+  height: 40px;
+  border: none;
+  padding: 0;
+}
+/* line 14, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .text-label {
+  padding: 0 20px 20px;
+  color: #e4d5c3;
+  text-shadow: 1px 1px #745734;
+  width: auto;
+}
+/* line 19, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav li.nav-button {
+  border-right: 1px solid #5e2000;
+  height: 40px;
+  width: auto;
+}
+/* line 23, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .dropdown .dropdown-menu {
+  visibility: hidden;
+  display: block;
+  top: 32px;
+  opacity: 0;
+}
+/* line 28, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .dropdown.open .dropdown-menu {
+  visibility: visible;
+  -webkit-transition: opacity 0.2s, top 0.2s;
+  -moz-transition: opacity 0.2s, top 0.2s;
+  -o-transition: opacity 0.2s, top 0.2s;
+  transition: opacity 0.2s, top 0.2s;
+  top: 42px;
+  opacity: 1;
+}
+/* line 33, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .icon-label {
+  line-height: 26px;
+  padding-top: 8px;
+  margin-right: 20px;
+  font-family: "sommet-rounded", Helvetica, Arial, sans-serif;
+  color: #eadbc9;
+  letter-spacing: 1px;
+  text-shadow: 0 -1px #825e32;
+  width: auto;
+  font-size: 17px;
+  display: block;
+  float: left;
+}
+/* line 46, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav.dropdown-toggle .nav-icon {
+  margin-right: 15px;
+}
+/* line 48, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .open .dropdown-menu .icon {
+  visibility: visible;
+}
+
+/* line 53, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a .nav-icon {
+  overflow: hidden;
+  height: 40px;
+  width: 51px;
+  margin: 0 15px 0 15px;
+  border: none;
+  display: block;
+  float: left;
+  background: url("/img/nav/nav_icons.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  /* line 53, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+  .navbar .nav .nav-button > a .nav-icon {
+    background: url("/img/nav/nav_icons_2x.png");
+    -webkit-background-size: 272px 80px;
+    -moz-background-size: 272px 80px;
+    -o-background-size: 272px 80px;
+    background-size: 272px 80px;
+  }
+}
+/* line 62, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.logo .nav-icon {
+  background-position: 0 0;
+}
+/* line 64, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.logo:hover .nav-icon {
+  background-position: 0 0;
+}
+/* line 67, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.dash .nav-icon {
+  background-position: -51px 0;
+}
+/* line 70, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.dash:active .nav-icon {
+  background-position: -51px -100%;
+}
+/* line 73, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.cars .nav-icon {
+  background-position: -102px 0;
+}
+/* line 76, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.cars:active .nav-icon {
+  background-position: -102px -100%;
+}
+/* line 79, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.trips .nav-icon {
+  background-position: -153px 0;
+}
+/* line 82, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.trips:active .nav-icon {
+  background-position: -153px -100%;
+}
+/* line 85, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.person-btn .nav-icon {
+  width: 34px;
+  background-position: -204px 0;
+}
+/* line 89, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.person-btn:active .nav-icon {
+  background-position: -204px -100%;
+}
+/* line 92, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.info-btn .nav-icon {
+  width: 34px;
+  background-position: -238px 0;
+}
+/* line 96, /Users/Bodhi/getaround/getaround3/getaround/servers/webapp/assets/sass/app/common/partials/_topnav.sass */
+.navbar .nav .nav-button > a.info-btn:active .nav-icon {
+  background-position: -238px -100%;
+}

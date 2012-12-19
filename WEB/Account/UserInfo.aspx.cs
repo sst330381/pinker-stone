@@ -35,6 +35,8 @@ public partial class Account_UserInfo : BasePage
         lbltitle.Text = user.Name;
         txtname.Text = user.RealName;
         txtphone.Text = user.Telphone;
+        txtemail.Text = user.Email;
+        imgavatar.ImageUrl = user.Avatar;
     }
 
     protected void btnSave_Click(object sender, EventArgs e)
@@ -42,14 +44,16 @@ public partial class Account_UserInfo : BasePage
         user.RealName = txtname.Text.Trim();
         user.Telphone = txtphone.Text.Trim();
         user.Email = txtemail.Text.Trim();
+        user.Avatar = avatar_hidden.Value;
         blluser.UpdateUser(user);
         if (user.Email == txtemail.Text)
-        { 
-            Response.Write("javascript:alert('修改成功!')")
+        {
+            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "alert('修改成功!')", true);
         }
         else
         {
-            
+            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "alert('修改失败!')", true);
         }
+        BindInfo();
     }
 }
