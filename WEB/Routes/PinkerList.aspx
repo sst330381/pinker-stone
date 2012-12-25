@@ -6,10 +6,16 @@
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
     <script type="text/javascript">
         $(function () {
-            $("#<%=lbltype1_all.ClientID %>").css("display", "block"); $("#<%=lbltype2_finddri.ClientID %>").css("display", "block");
+            $("#lbltype1_short").css("display", "block"); $("#lbltype2_finddri").css("display", "block");
             $(".resutil>li").click(function () { $(this).parent().find("li").children().css("display", "none"); $(this).children().css("display", "block") });
             $('#showList').click(function () { if ($('#showList').attr('class') == 'btn') { $('#resultlist').css('display', 'block'); $('#resultmap').css('display', 'none') } });
             $('#showMap').click(function () { if ($('#showMap').attr('class') == 'btn') { $('#resultmap').css('display', 'block'); $('#resultlist').css('display', 'none') } });
+
+            $("#lbltype1_host").click(function () { $.cookie("pubtype1_s", "host"); });
+            $("#lbltype1_pinker").click(function () { $.cookie("pubtype1_s", "pinker"); });
+            $("#lbltype2_short").click(function () { $.cookie("pubtype2_s", "short"); });
+            $("#lbltype2_long").click(function () { $.cookie("pubtype2_s", "long"); });
+            $("#lbltype2_self").click(function () { $.cookie("pubtype2_s", "self"); });
         });
     </script>
 </asp:Content>
@@ -21,27 +27,27 @@
                     <div class="card padded2">
                         <div class="form-horizontal">
                             <label class="control-label-low">
-                                类型1:</label>
+                                拼车类型:</label>
                             <div class="controls form-inline">
                                 <ul class="resutil">
-                                    <li>全部<span id="lbltype1_all" runat="server" style="display: none;">✔全部 </span></li>
-                                    <li>上下班拼车<span id="lbltype1_short" runat="server" style="display: none;">✔上下班拼车 </span>
+                                    <%--<li>全部<span id="lbltype1_all" runat="server" style="display: none;">✔全部 </span></li>--%>
+                                    <li id="lbltype2_short">上下班拼车<span id="lbltype1_short" style="display: none;">✔上下班拼车 </span>
                                     </li>
-                                    <li>长途拼车<span id="lbltype1_long" runat="server" style="display: none;">✔长途拼车 </span>
+                                    <li id="lbltype2_long">长途拼车<span id="lbltype1_long" style="display: none;">✔长途拼车 </span>
                                     </li>
-                                    <li>自驾拼车<span id="lbltype1_self" runat="server" style="display: none;">✔自驾拼车 </span>
+                                    <li id="lbltype2_self">自驾拼车<span id="lbltype1_self" style="display: none;">✔自驾拼车 </span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="form-horizontal">
                             <label class="control-label-low">
-                                类型2:</label>
+                                拼客类型:</label>
                             <div class="controls form-inline">
                                 <ul class="resutil">
-                                    <li tsize="driver">找车主<span id="lbltype2_finddri" runat="server" style="display: none;">✔找车主
+                                    <li id="lbltype1_host" tsize="driver">找车主<span id="lbltype2_finddri" style="display: none;">✔找车主
                                     </span></li>
-                                    <li tsize="pinker">找拼客<span id="lbltype2_findpin" runat="server" style="display: none;">✔找拼客
+                                    <li id="lbltype1_pinker" tsize="pinker">找拼客<span id="lbltype2_findpin" style="display: none;">✔找拼客
                                     </span></li>
                                 </ul>
                             </div>
@@ -50,9 +56,9 @@
                             <label class="control-label">
                                 线路:</label>
                             <div class="controls">
-                                <input id="txtStart" type="text" placeholder="输入起点..." />
+                                <input id="txtStart" type="text" placeholder="输入起点..." runat="server"/>
                                 到
-                                <input id="txtDest" type="text" placeholder="输入终点..." />
+                                <input id="txtDest" type="text" placeholder="输入终点..." runat="server"/>
                                 <input id="btnsearch" type="button" class="btn btn-primary" value="搜索" />
                             </div>
                         </div>

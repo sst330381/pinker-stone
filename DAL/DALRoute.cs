@@ -15,9 +15,11 @@ namespace DAL
             session.Flush();
         }
 
-        public IList<Route> GetRoute()
+        public IList<Route> GetRoute(MODEL.PinkerType pinkerType, bool finddriver, string start, string dest)
         {
-            IQuery query = session.CreateQuery("from Route r ");
+            IQuery query = session.CreateQuery("from Route r where r.Pinkertype="
+                + (int)pinkerType + " and r.Driver="+finddriver
+                + " and StartLocation like '%" + start + "%'" + " and DestLocation like '%" + dest + "%'");
             IList<Route> routes = query.Future<Route>().ToList();
             return routes;
         }

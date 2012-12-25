@@ -168,9 +168,9 @@ namespace BLL
 
         }
 
-        public IList<Route> GetRoute()
+        public IList<Route> GetRoute(MODEL.PinkerType pinkerType,bool finddriver,string start,string dest)
         {
-            return dalroute.GetRoute();
+            return dalroute.GetRoute(pinkerType,finddriver,start,dest);
         }
 
         public Route GetRoute(Guid guid)

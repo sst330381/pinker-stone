@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
-    <script src="Scripts/jquery.cookie.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.cookie.js" type="text/javascript"></script>
     <style type="text/css">
         body, html, #allmap
         {
@@ -41,10 +41,10 @@
     <div id="searchResultPanel" style="border: 1px solid #C0C0C0; width: 150px; height: auto;"/>
     <script type="text/javascript">
 
-        $(function () {
-            $.cookie("m_start", null);
-            $.cookie("m_dest", null);
-        });
+//        $(function () {
+//            $.cookie("m_start", null);
+//            $.cookie("m_dest", null);
+//        });
         //地图基本属性设置
         var map = new BMap.Map("bmap");
         var point = new BMap.Point(116.404, 39.915);
@@ -54,19 +54,19 @@
         map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
 
         //多关键字搜索
-//        var myKeys = ["酒店", "加油站"];
-//        var local = new BMap.LocalSearch(map, {
-//            renderOptions: { map: map, panel: "r-result" }
-//        });
-//        local.setPageCapacity(7);
-//        local.searchInBounds(myKeys, map.getBounds());
+        var myKeys = ["酒店", "加油站"];
+        var local = new BMap.LocalSearch(map, {
+            renderOptions: { map: map, panel: "r-result" }
+        });
+        local.setPageCapacity(3);
+        local.searchInBounds(myKeys, map.getBounds());
 
-//        //ip定位
-//        var myCity = new BMap.LocalCity();
-//        myCity.get(function (result) {
-//            var cityName = result.name;
-//            map.setCenter(cityName);
-        //        });
+        //ip定位
+        var myCity = new BMap.LocalCity();
+        myCity.get(function (result) {
+            var cityName = result.name;
+            map.setCenter(cityName);
+                });
 
         map.addEventListener("click", function (e) {
             var myKeys = ["酒店", "加油站"];
@@ -75,7 +75,6 @@
             var bounds = getSquareBounds(circle.getCenter(), circle.getRadius());
             local.searchInBounds(myKeys, bounds);
             var result = local.getResults();
-            alert(result);
         });
 
 

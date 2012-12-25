@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using MODEL;
 
 public partial class PinkerList : BasePage
 {
@@ -21,7 +22,11 @@ public partial class PinkerList : BasePage
 
     private void BindPinklist()
     {
-        var routes=bllroute.GetRoute();
+        var type1 = Request.Cookies["pubtype1_s"] == null ? "host" : Request.Cookies["pubtype1_s"].Value;
+        var type2 = Request.Cookies["pubtype2_s"] == null ? "上下班拼车" : Request.Cookies["pubtype2_s"].Value;
+        var routes = bllroute.GetRoute(
+            (PinkerType)Enum.Parse(typeof(PinkerType), type2), type1 == "host",
+            txtStart.Value.Trim(), txtDest.Value.Trim());
         resultcout = routes.Count;
         rptcars.DataSource = routes;
         rptcars.DataBind();

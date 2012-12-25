@@ -19,14 +19,6 @@ myCity.get(function (result) {
     map.setCenter(cityName);
 });
 
-//fsa
-//var milesCalc = function (results) {
-//    if (driving.getStatus() != BMAP_STATUS_SUCCESS) {
-//        return;
-//    }
-//    $.cookie("m_miles", plan.getDistance(true));             //获取距离
-//}
-
 //重新绘制图标
 function drawicons() {
     map.clearOverlays();
@@ -78,7 +70,7 @@ function drawicons() {
     });
     driving.search(s_position, d_position);
 }
-
+window.openInfoWinFuns = null;
 //创建右键菜单
 var menu = new BMap.ContextMenu();
 var txtMenuItem = [
@@ -88,9 +80,15 @@ var txtMenuItem = [
         $.cookie("m_start", p.lng + "," + p.lat);
         drawicons();
         gc.getLocation(p, function (rs) {
+
+            var myKeys = ["房地产"];
+            var circle = new BMap.Circle(new BMap.Point(rs.point.lng, rs.point.lat), 500, { fillColor: "yellow", strokeWeight: 1, fillOpacity: 0.3, strokeOpacity: 0.3 });
+            var local = new BMap.LocalSearch(map, { renderOptions: { map: map, autoViewport: false} });
+            var bounds = getSquareBounds(circle.getCenter(), circle.getRadius());
+            local.searchInBounds(myKeys, bounds);
             var addComp = rs.addressComponents;
             $("input[id*=startplace]").val(
-            addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            addComp.district + addComp.street + addComp.streetNumber);
         });
     }
 },
@@ -102,7 +100,7 @@ var txtMenuItem = [
         gc.getLocation(p, function (rs) {
             var addComp = rs.addressComponents;
             $("input[id*=destplace]").val(
-            addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            addComp.district + addComp.street + addComp.streetNumber);
         });
     }
 }];
@@ -116,24 +114,6 @@ var startac = new BMap.Autocomplete(    //建立一个自动完成的对象
 {"input": "ContentPlaceHolder1_startplace", "location": map });
 var destac = new BMap.Autocomplete(    //建立一个自动完成的对象
 {"input": "ContentPlaceHolder1_destplace", "location": map });
-
-startac.addEventListener("onhighlight", function (e) {  //鼠标放在下拉列表上的事件
-    var str = "";
-    var _value = e.fromitem.value;
-    var value = "";
-    if (e.fromitem.index > -1) {
-        value = _value.province + _value.city + _value.district + _value.street + _value.business;
-    }
-    str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
-
-    value = "";
-    if (e.toitem.index > -1) {
-        _value = e.toitem.value;
-        value = _value.province + _value.city + _value.district + _value.street + _value.business;
-    }
-    str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
-    $("#searchResultPanel").innerHTML = str;
-});
 
 var inputValue;
 startac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
@@ -169,7 +149,7 @@ destac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列�
 });
 
 function start_setPlace() {
-    map.clearOverlays();    //清除地图上所有覆盖物
+    //map.clearOverlays();    //清除地图上所有覆盖物
     function myFun() {
         var p = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
         $.cookie("m_start", p.lng + "," + p.lat);
@@ -182,7 +162,7 @@ function start_setPlace() {
 }
 
 function dest_setPlace() {
-    map.clearOverlays();    //清除地图上所有覆盖物
+    //map.clearOverlays();    //清除地图上所有覆盖物
     function myFun() {
         var p = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
         $.cookie("m_dest", p.lng + "," + p.lat);
@@ -192,4 +172,75 @@ function dest_setPlace() {
         onSearchComplete: myFun
     });
     local.search(inputValue);
+}
+
+
+$("#ContentPlaceHolder1_startplace").blur(function () {
+    if ($("#ContentPlaceHolder1_startplace").val() != "" && $.cookie("m_start") == null) {
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun() {
+            var p = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            $.cookie("m_start", p.lng + "," + p.lat);
+            drawicons();
+        }
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
+        });
+        local.search($("#ContentPlaceHolder1_startplace").val());
+    }
+});
+
+$("#ContentPlaceHolder1_destplace").blur(function () {
+    if ($("#ContentPlaceHolder1_destplace").val() != "" && $.cookie("m_dest") == null) {
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun() {
+            var p = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            $.cookie("m_dest", p.lng + "," + p.lat);
+            drawicons();
+        }
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
+        });
+        local.search($("#ContentPlaceHolder1_destplace").val());
+    }
+});
+
+//获取周边地标
+//map.addEventListener("click", function (e) {
+//    //var myKeys = ["酒店", "加油站"];
+//    var myKeys = ["房地产"];
+//    var circle = new BMap.Circle(new BMap.Point(e.point.lng, e.point.lat), 500, { fillColor: "yellow", strokeWeight: 1, fillOpacity: 0.3, strokeOpacity: 0.3 });
+//    var local = new BMap.LocalSearch(map, { renderOptions: { map: map, autoViewport: true} });
+//    var bounds = getSquareBounds(circle.getCenter(), circle.getRadius());
+//    local.searchInBounds(myKeys, bounds);
+//    var results = local.getResults();
+//});
+
+
+/**
+* 得到圆的内接正方形bounds
+* @param {Point} centerPoi 圆形范围的圆心
+* @param {Number} r 圆形范围的半径
+* @return 无返回值   
+*/
+function getSquareBounds(centerPoi, r) {
+    var a = Math.sqrt(2) * r; //正方形边长
+
+    mPoi = getMecator(centerPoi);
+    var x0 = mPoi.x, y0 = mPoi.y;
+
+    var x1 = x0 + a / 2, y1 = y0 + a / 2; //东北点
+    var x2 = x0 - a / 2, y2 = y0 - a / 2; //西南点
+
+    var ne = getPoi(new BMap.Pixel(x1, y1)), sw = getPoi(new BMap.Pixel(x2, y2));
+    return new BMap.Bounds(sw, ne);
+
+}
+//根据球面坐标获得平面坐标。
+function getMecator(poi) {
+    return map.getMapType().getProjection().lngLatToPoint(poi);
+}
+//根据平面坐标获得球面坐标。
+function getPoi(mecator) {
+    return map.getMapType().getProjection().pointToLngLat(mecator);
 }

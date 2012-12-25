@@ -190,7 +190,7 @@
                                 拼车清单
                             </h3>
                         </div>
-                        <div class="padded2">
+                        <div id="sideIntro" class="padded2">
                             
                         </div>
                     </div>

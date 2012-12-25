@@ -37,6 +37,8 @@ public partial class Account_UserInfo : BasePage
         txtphone.Text = user.Telphone;
         txtemail.Text = user.Email;
         imgavatar.ImageUrl = user.Avatar;
+        radio_m.Checked = user.Gender;
+        radio_f.Checked = !user.Gender;
     }
 
     protected void btnSave_Click(object sender, EventArgs e)
@@ -45,6 +47,7 @@ public partial class Account_UserInfo : BasePage
         user.Telphone = txtphone.Text.Trim();
         user.Email = txtemail.Text.Trim();
         user.Avatar = avatar_hidden.Value;
+        user.Gender = radio_m.Checked;
         blluser.UpdateUser(user);
         if (user.Email == txtemail.Text)
         {

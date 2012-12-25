@@ -72,39 +72,25 @@
                 </div>
             </div>
             <div style="display: block; margin-left: 120px;">
-                <%--<div class="form-horizontal">
-                    <label class="control-label-low">
-                        * 常用联系人:</label>
-                    <div class="controls">
-                        <asp:TextBox ID="txtname" placeholder="常用联系人" runat="server" />
-                    </div>
-                </div>
-                <div class="form-horizontal">
-                    <label class="control-label-low">
-                        * 联系人号码:</label>
-                    <div class="controls">
-                        <asp:TextBox ID="txtphone" placeholder="联系人号码" runat="server" />
-                    </div>
-                </div>
-                <div class="form-horizontal">
-                    <label class="control-label-low">
-                        * 电子邮箱:</label>
-                    <div class="controls">
-                        <asp:TextBox ID="txtemail" placeholder="电子邮箱" runat="server" />
-                    </div>
-                </div>--%>
                 <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
+                        <td style="width:90px;">* 性别:</td>
+                        <td>
+                            <input id="radio_m" type="radio" name="name" value="男" runat="server" checked="true" style="margin-right:10px;"/>男
+                            <input id="radio_f" type="radio" name="name" value="女" runat="server" style="margin-left:20px;margin-right:10px;"/>女
+                        </td>
+                    </tr>
+                    <tr>
                         <td style="width:90px;">* 常用联系人:</td>
-                        <td><asp:TextBox ID="txtname" placeholder="常用联系人" runat="server" /></td>
+                        <td><asp:TextBox ID="txtname" placeholder="常用联系人" runat="server" style="margin-top:8px;" /></td>
                     </tr>
                     <tr>
                         <td>* 联系人号码:</td>
-                        <td><asp:TextBox ID="txtphone" placeholder="联系人号码" runat="server" /></td>
+                        <td><asp:TextBox ID="txtphone" placeholder="联系人号码" runat="server"  style="margin-top:8px;" /></td>
                     </tr>
                     <tr>
                         <td>* 电子邮箱:</td>
-                        <td><asp:TextBox ID="txtemail" placeholder="电子邮箱" runat="server" /></td>
+                        <td><asp:TextBox ID="txtemail" placeholder="电子邮箱" runat="server"  style="margin-top:8px;" /></td>
                     </tr>
                 </table>
             </div>

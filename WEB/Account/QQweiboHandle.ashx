@@ -20,7 +20,7 @@ public class QQweiboHandle : IHttpHandler, System.Web.SessionState.IRequiresSess
         context.Response.Cookies.Add(c_appsecret);
         context.Response.Cookies.Add(c_unoauthtokenkey);
         context.Response.Cookies.Add(c_unoauthtokensecret);
-
+            
         //获取request_token
         if (GetRequestToken(c_appkey.Value, c_appsecret.Value, context) == false)
         {
@@ -56,6 +56,7 @@ public class QQweiboHandle : IHttpHandler, System.Web.SessionState.IRequiresSess
             return false;
         }
     }
+    
     private bool ParseToken(string response, HttpContext context)
     {
         if (string.IsNullOrEmpty(response))

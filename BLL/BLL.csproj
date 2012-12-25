@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspMembershipProvider.cs" />
+    <Compile Include="BLLExpress.cs" />
     <Compile Include="BLLRoute.cs" />
     <Compile Include="BLLUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
